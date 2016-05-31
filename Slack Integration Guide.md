@@ -1,20 +1,20 @@
-#Salesforce Slack Integration
+#Salesforce Process Automation
 
 ## Introduction
 
-In this project we will be creating two different integrations between Salesforce and the Slack Messaging service. [Slack](http://www.slack.com) is a cloud based team collaboration tool, allowing teams to join and create different Channels. Slack is also highly extensible and provides some excellent mechanisms for integration, some of which we are going to explore in this project. 
+In this project we will be creating three different process automation steps and combining them to provide a solution to administering new sessions for web development classes in various chapter locations. Class sessions are modeled as Campaigns. The Chapter Leader creates a new Campaign once a Date, Location, and Instructor have been identified for a class. The Chapter Leader updates the Campaign Status to In Progress once they have enough Teaching Assistants for the class.
 
-There are three integrations that you are going to build:
-* Salesforce to Slack - notify on update of an Opportunity stage.
-* Slack Slash Commands - provide a set of commands that Slack users can execute to see Salesforce data in Slack
-* Configure a Salesforce Bot to monitor Slack channels and respond
+There are three process automation tools that you will use:
+* Process Builder - orchestrate all automation steps, recruit Teaching Assistants for the new session via Chatter, and create a Campaign Member child record 
+* Flow - lookup data in other objects to update class session (Campaign) fields
+* Apex - call out to SurveyMonkey to create a new survey from a template
 
 Sounds like a lot? Well, luckily some of the [heavy lifting](http://coenraets.org/blog/2016/04/salesforce-slack-bot/) has been done for us and today we will be able to stand on the shoulders of giants as we go.
 
 Let's get started! 
 
-## 1 - Notify Slack Team of Opportunity Status Update
-Picture this, your project team is happily working away delivering for their customers while your Sales team is on the road, closing deals. The project team have a very active Slack channel that they use to keep on top of all the changing requirements for in flight projects, as well as helping them manage resourcing when changes happen. The team is always interested when deals move towards close, it helps them keep one eye on the resourcing pipeline. Lets build a simple integration to make it even easier for the project team to stay up to date.
+## 1 - Recruit Teaching Assistants (TAs) for New Class Sessions
+As the Picture this, your project team is happily working away delivering for their customers while your Sales team is on the road, closing deals. The project team have a very active Slack channel that they use to keep on top of all the changing requirements for in flight projects, as well as helping them manage resourcing when changes happen. The team is always interested when deals move towards close, it helps them keep one eye on the resourcing pipeline. Lets build a simple integration to make it even easier for the project team to stay up to date.
 
 ### What you will do
 1. Create a Slack Team & Channel
