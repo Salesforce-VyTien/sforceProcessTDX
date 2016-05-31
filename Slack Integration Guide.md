@@ -13,7 +13,7 @@ Sounds like a lot? Well, luckily some of the [heavy lifting](http://coenraets.or
 
 Let's get started! 
 
-## 1 - Recruit Teaching Assistants (TAs) for New Class Sessions
+## 1 - Automating Processes for New Class Sessions
 As the Chapter Leader, you've done the legwork to identify the starting point for a new class session. Now you need to get it into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part.
 
 ### What you will do
@@ -25,8 +25,31 @@ As the Chapter Leader, you've done the legwork to identify the starting point fo
 
 ![Salesforce to Slack](5.6 - salesforceToSlack.png)
 
-## The Slack Bit...
-### Create Slack Team and Channel
+## Automating with Point & Click...
+### Create Process and Define Criteria
+These two automations can be done right within the Process Builder, completely declaratively! 
+
+Lets fire up our Process Builder and create this rule.
+![Create Process](5.0 - create process.png)
+
+Click New and populate the details of your new Process.
+
+![New Process](5.2 - new process window.png)
+
+Select the Campaign object, then add the selection criteria. i.e. When does the action need to fire? In our case, Campaigns are used for many things, so we only want to fire the actions when it is a DEV Class we want to notify our project teams through Slack when an Opporunity record changes stage. Notice here we could add plenty of different conditions if required, we might not want to spam our team with every minor detail? 
+
+![Process Criteria](5.3 - Process Criteria.png)
+
+Now we can add an action that calls our fresly minted Apex class, ready to accept the two parameters that we annotated with the @InnvocableVariable annotation.
+![Set the Action](5.4 - Configure Apex Class.png)
+
+### Test
+Your functioning integration should now be ready to test. Go ahead and login to Slack
+
+[![Process Builder](6.3 - Step1Video.png)](https://youtu.be/M8gEkDk0bto)
+
+
+
 Create your own Slack account for this exercise, your company might already have teams on Slack so when you register with your email address you could be prompted to join one of these existing channels.. They may not appreciate your positing updates from your Salesforce Developer environment so lets create a new team from scratch. Go ahead and let the wizard guide you through creation of your own Slack Team, you should end up with something like this.
 
 ![Create Slack Team](3 - Create Team.png)
