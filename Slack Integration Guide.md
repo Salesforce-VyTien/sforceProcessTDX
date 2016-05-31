@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this project we will be creating three different process automation steps and combining them to provide a solution to administering new sessions for web development classes in various chapter locations. Class sessions are modeled as Campaigns. The Chapter Leader creates a new Campaign once a Date, Location, and Instructor have been identified for a class. The Chapter Leader updates the Campaign Status to In Progress once they have enough Teaching Assistants for the class.
+In this project we will be creating three different process automation steps and combining them to provide a solution to administering new sessions for web development classes. Class sessions are modeled as Campaigns. The Chapter Leader creates a new Campaign once a Date, Location, and Instructor have been identified for a class. The Chapter Leader updates the Campaign Status to In Progress once they have enough Teaching Assistants for the class. Instructors and Teaching Assistants are modeled as Contacts.
 
 There are three process automation tools that you will use:
 * Process Builder - orchestrate all automation steps, recruit Teaching Assistants for the new session via Chatter, and create a Campaign Member child record 
@@ -14,14 +14,14 @@ Sounds like a lot? Well, luckily some of the [heavy lifting](http://coenraets.or
 Let's get started! 
 
 ## 1 - Recruit Teaching Assistants (TAs) for New Class Sessions
-As the Picture this, your project team is happily working away delivering for their customers while your Sales team is on the road, closing deals. The project team have a very active Slack channel that they use to keep on top of all the changing requirements for in flight projects, as well as helping them manage resourcing when changes happen. The team is always interested when deals move towards close, it helps them keep one eye on the resourcing pipeline. Lets build a simple integration to make it even easier for the project team to stay up to date.
+As the Chapter Leader, you've done the legwork to identify the starting point for a new class session. Now you need to get it into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part.
 
 ### What you will do
-1. Create a Slack Team & Channel
-2. Add the Slack Webhook 
-3. Create an Apex Class
-4. Build the Process
-5. Enable Remote Site and Test
+1. Create a process in Process Builder for the Campaign object
+2. Add the process Criteria
+3. Add an Action to post to Chatter to ask for volunteers
+4. Add an Action to create a Campaign Member record for the Instructor
+5. Activate and test the process
 
 ![Salesforce to Slack](5.6 - salesforceToSlack.png)
 
