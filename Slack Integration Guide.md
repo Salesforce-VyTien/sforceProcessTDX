@@ -58,8 +58,10 @@ Next add an action that posts to Chatter, using merge fields and @mentions to fi
 Chatter message should read:
 ```
 HELP WANTED!
-I'm looking for Teaching Assistant volunteers for a [Class Name] class taught by @[{![Campaign].Instructor__c.FirstName} {![Campaign].Instructor__c.LastName}] on [Start Date]!
-Please email me at [Owner Email] if you are interested.
+
+I'm looking for Teaching Assistant volunteers for a {![Campaign].Class__r.Name} class taught by {![Campaign].Instructor__r.FirstName} {![Campaign].Instructor__r.LastName} on {![Campaign].StartDate}!
+
+Please email me at {![Campaign].Owner.Email} if you are interested.
 ```
 
 ![Set the Action](5.4 - Configure Apex Class.png)
