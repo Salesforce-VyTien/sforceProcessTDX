@@ -65,34 +65,27 @@ Please email me at [Owner Email] if you are interested.
 ![Set the Action](5.4 - Configure Apex Class.png)
 TBD: replace with new screen shot
 
-Now add an action that creates a Campaign Member for the Instructor, mapping values from the Campaign.
+Now add an action that creates a Campaign Member for the Instructor, mapping values from the Campaign as follows:
+Campaign ID | Reference | [Campaign.Id]
+Contact ID | Reference | [Campaign.Instructor__c.Id]
+Status | Picklist | Planned
+
 ![Set the Action](5.4 - Configure Apex Class.png)
 TBD: replace with new screen shot
 
 Finally, Activate the process.
 
 ### Test
-Your functioning process should now be ready to test. Pretend you are the Chapter Leader and enter a new Campaign record, setting the Campaign Type = DEV Class; Class field = your sample class; Start Date = any date; Instructor = your sample instructor. Save.
-
-Refresh the Campaign page. Is there a new Campaign Member record?
-
-Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
+Your functioning process should now be ready to test. Pretend you are the Chapter Leader and follow these steps:
+1. Enter a new Campaign record, setting the Campaign Type = DEV Class; Class field = your sample class; Start Date = any date; Instructor = your sample instructor. Save.
+2. Refresh the Campaign page. Is there a new Campaign Member record?
+3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
 
 [![Process Builder](6.3 - Step1Video.png)](https://youtu.be/M8gEkDk0bto)
 TBD: replace with new screen shot
 
-
-
-
-```
-curl -X POST -H 'Content-type: application/json' --data '{"text":"This is a test post from cURL"}' https://hooks.slack.com/services/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
-```
-Should result in something like this.
-
-![Testing With cURL](4.4 - cURL test.png)
-
-## The Salesforce Bit...
-Now we have an endpoint configured and listening for something, its time to configure Salesforce to send the messages to Slack. We are going to do this by writing a small piece of Apex code that will be fired from a process we define in the Process Builder
+## Automating Processes for New Class Sessions, Part 2
+The next automation requires concatenating values from multiple lookups.  is something we cannot do with just the Process Builder capabilities. This is where Flow Now we have an endpoint configured and listening for something, its time to configure Salesforce to send the messages to Slack. We are going to do this by writing a small piece of Apex code that will be fired from a process we define in the Process Builder
 
 ###Apex Class
 Now we can create the Apex code that is capable of posting a message to this newly configured Webhook URL. The methods and classes here will allow Opportunity Name and Stage fields to be posted out to the the URL. 
