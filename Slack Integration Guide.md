@@ -2,16 +2,16 @@
 
 ## Introduction
 
-In this project we will be creating three different process automation steps and combining them to provide a solution to administering new sessions for web development classes. Class sessions are modeled as Campaigns. The Chapter Leader creates a new Campaign once a Date, Location, and Instructor have been identified for a class. The Chapter Leader updates the Campaign Status to In Progress once they have enough Teaching Assistants for the class. Instructors and Teaching Assistants are modeled as Contacts.
+In this project we will be creating three different process automation steps and combining them to provide a solution to managing Teaching Assistants for web development classes. Class sessions are modeled as Campaigns. The Chapter Leader creates a new Campaign once a Date, Location, and Instructor have been identified for a class. The Chapter Leader updates the Campaign Status to In Progress once they have enough Teaching Assistants for the class. Instructors and Teaching Assistants are modeled as Contacts.
 
 There are three process automation tools that you will use:
 * Process Builder - orchestrate all automation steps, recruit Teaching Assistants for the new session via Chatter, and create a Campaign Member child record 
 * Flow - lookup data in other objects to update class session (Campaign) fields
-* Apex - call out to SurveyMonkey to create a new survey from a template
-
-Sounds like a lot? Well, luckily some of the [heavy lifting](http://coenraets.org/blog/2016/04/salesforce-slack-bot/) has been done for us and today we will be able to stand on the shoulders of giants as we go.
+* Apex - post a Thanks badge to each Teaching Assistant
 
 Let's get started! 
+
+this is how to make a URL in markup [heavy lifting](http://coenraets.org/blog/2016/04/salesforce-slack-bot/) 
 
 ## 1 - Automating Processes for New Class Sessions
 As the Chapter Leader, you've done the legwork to identify the starting point for a new class session. Now you need to get it into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part.
