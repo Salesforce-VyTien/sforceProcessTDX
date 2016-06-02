@@ -63,11 +63,11 @@ Please email me at {![Campaign].Owner.Email} if you are interested.
 ![Set the Action](1.3 - chatter post action.png)
 
 Now add an action that creates a Campaign Member for the Instructor, mapping values from the Campaign as follows:
-Campaign ID | Reference | [Campaign.Id]
-Contact ID | Reference | [Campaign.Instructor__c.Id]
-Status | Picklist | Planned
+1. Campaign ID | Reference | [Campaign.Id]
+2. Contact ID | Reference | [Campaign.Instructor__c.Id]
+3. Status | Picklist | Planned
 
-Remove the Lead ID row. Save.
+Remove the Lead ID row, then Save.
 
 ![Set the Action](5.4 - Configure Apex Class.png)
 TBD: replace with new screen shot
