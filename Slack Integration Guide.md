@@ -21,14 +21,13 @@ There is some data model pre-work before you get to the process automation tools
 ### Pre-Work Steps
 1. Create a custom object named Class with one Long Text field named Description.
 2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to Contact); edit Campaign Type picklist to include DEV Class
-3. Customize Campaign Member: add field for Class Role (Picklist with values Instructor, Teaching Assistant)
-4. Create Women in Tech Chatter Group: Private, Allow Customers
-5. Create sample data: at least one Instructor, create as Chatter External user and as Contact
-6. Create sample data: at least one Teaching Assistant, create as Chatter External user and as Contact
-7. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
+3. Create Women in Tech Chatter Group: Private, Allow Customers
+4. Create sample data: at least one Instructor, create as Chatter External user and as Contact
+5. Create sample data: at least one Teaching Assistant, create as Chatter External user and as Contact
+6. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
 
-## 1 - Automating Processes for New Class Sessions
-As the Chapter Leader, you've done the legwork to identify the starting point for a new class session: the Class, an Instructor, and the Date. Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
+## 1 - Automating Processes for New Class Sessions, Part 1
+As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign): the Class, an Instructor, and the Date. Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
 
 ### What you will do
 1. Create a process in Process Builder for the Campaign object
@@ -37,11 +36,9 @@ As the Chapter Leader, you've done the legwork to identify the starting point fo
 4. Add an Action to create a Campaign Member record for the Instructor
 5. Activate and test the process
 
-![Salesforce to Slack](5.6 - salesforceToSlack.png)
-
-## Automating with Point & Click...
+## Automating with Process Builder...
 ### Create Process and Define Criteria
-These two automations can be done right within the Process Builder, completely declaratively! 
+These first two automations can be done right within the Process Builder, completely declaratively! 
 
 Lets fire up our Process Builder and create this rule.
 ![Create Process](5.0 - create process.png)
@@ -49,16 +46,25 @@ Lets fire up our Process Builder and create this rule.
 Click New and populate the details of your new Process.
 
 ![New Process](5.2 - new process window.png)
+TBD: replace with new screen shot
 
-Select the Campaign object, then add the selection criteria. i.e. When does the action need to fire? In our case, Campaigns are used for many things, so we only want to fire the actions when it is a DEV Class we want to notify our project teams through Slack when an Opporunity record changes stage. Notice here we could add plenty of different conditions if required, we might not want to spam our team with every minor detail? 
+Select the Campaign object, then add the selection criteria. i.e. When does the action need to fire? In our case, Campaigns are used for many things, so we only want to fire these actions when it is a DEV Class type of Campaign, and we only want to do this for new Campaigns. Notice here we could add plenty of different conditions if required. 
 
 ![Process Criteria](5.3 - Process Criteria.png)
+TBD: replace with new screen shot
 
-Now we can add an action that calls our fresly minted Apex class, ready to accept the two parameters that we annotated with the @InnvocableVariable annotation.
+Next add an action that posts to Chatter, using merge fields and @mentions to fill in the details.
 ![Set the Action](5.4 - Configure Apex Class.png)
+TBD: replace with new screen shot
+
+Now add an action that creates a Campaign Member for the Instructor, mapping values from the Campaign.
+![Set the Action](5.4 - Configure Apex Class.png)
+TBD: replace with new screen shot
+
+Finally, 
 
 ### Test
-Your functioning integration should now be ready to test. Go ahead and login to Slack
+Your functioning process should now be ready to test. Go ahead and login to Slack
 
 [![Process Builder](6.3 - Step1Video.png)](https://youtu.be/M8gEkDk0bto)
 
