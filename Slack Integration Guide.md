@@ -26,6 +26,7 @@ There is some data model pre-work before you get to the process automation tools
 5. Create sample data: at least one Teaching Assistant, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
 6. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
 7. Enable Thanks on Global Publisher: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
+8. Create at least one Class record
 
 ## 1 - Automating Processes for New Class Sessions, Part 1
 As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign): the Class, an Instructor, and the Date. Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
@@ -55,10 +56,11 @@ TBD: replace with new screen shot
 
 Next add an action that posts to Chatter, using merge fields and @mentions to fill in the details.
 Chatter message should read:
-
+```
 HELP WANTED!
 I'm looking for Teaching Assistant volunteers for a [Class Name] class taught by @[{![Campaign].Instructor__c.FirstName} {![Campaign].Instructor__c.LastName}] on [Start Date]!
 Please email me at [Owner Email] if you are interested.
+```
 
 ![Set the Action](5.4 - Configure Apex Class.png)
 TBD: replace with new screen shot
@@ -67,37 +69,20 @@ Now add an action that creates a Campaign Member for the Instructor, mapping val
 ![Set the Action](5.4 - Configure Apex Class.png)
 TBD: replace with new screen shot
 
-Finally, 
+Finally, Activate the process.
 
 ### Test
-Your functioning process should now be ready to test. Go ahead and login to Slack
+Your functioning process should now be ready to test. Pretend you are the Chapter Leader and enter a new Campaign record, setting the Campaign Type = DEV Class; Class field = your sample class; Start Date = any date; Instructor = your sample instructor. Save.
+
+Refresh the Campaign page. Is there a new Campaign Member record?
+
+Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
 
 [![Process Builder](6.3 - Step1Video.png)](https://youtu.be/M8gEkDk0bto)
+TBD: replace with new screen shot
 
 
 
-Create your own Slack account for this exercise, your company might already have teams on Slack so when you register with your email address you could be prompted to join one of these existing channels.. They may not appreciate your positing updates from your Salesforce Developer environment so lets create a new team from scratch. Go ahead and let the wizard guide you through creation of your own Slack Team, you should end up with something like this.
-
-![Create Slack Team](3 - Create Team.png)
-
-Once you have created your team, add yourself a new Channel. Slack Channels are an effective way of broadcasting information to a group of users who are interested, they express their interest by subscribing to channels they are interested. Our channel we are creating now will allow members of the project team to be alerted, if they are interested (i.e. if they subscribe!)
-
-![Create Slack Channel](1 - Create Slack Channel.png)
-
-### Create Slack Integration
-Once you have your team and channel in place you will need to add an integration, this is an endpoint for Salesforce to call when it has something interesting to report. Click on the gear icon in the top right hand corner and select "Add an app or integration".
-
-![Add the Integration](4.1 - Add an integration.png)
-
-Select the integration you need from the list provided, we want to add the "Incoming Webhooks" app to our Team. Click "Install" to add this to your environment.
-
-![Install Webhooks](4.2 - Install Webhook.png)
-
-Lastly, we need to configure an endpoint for Salesforce to call. The configuration allows you to select a Channel to POST into, set some labels and also provides the endpoint URL that you will need later in the tutorial.
-
-![Configure Webhook](4.3 - Webhook settings.png)
-
-Now you should have a new Slack Team, Channel and a configured webhook that is ready to go. Before we get to the fun stuff (i.e. Salesforce!) we can test our Webhook is working correctly with a simple cURL command from the commandline. 
 
 ```
 curl -X POST -H 'Content-type: application/json' --data '{"text":"This is a test post from cURL"}' https://hooks.slack.com/services/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
