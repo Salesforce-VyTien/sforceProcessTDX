@@ -52,18 +52,15 @@ Select the Campaign object, then add the selection criteria. i.e. When does the 
 
 ![Process Criteria](1.2 - dev class process criteria.png)
 
-Next add an action that posts to Chatter, using merge fields and @mentions to fill in the details.
+Next add an action that posts to Chatter, using merge fields to fill in the details.
 Chatter message should read:
 ```
 HELP WANTED!
-
 I'm looking for Teaching Assistant volunteers for a {![Campaign].Class__r.Name} class taught by {![Campaign].Instructor__r.FirstName} {![Campaign].Instructor__r.LastName} on {![Campaign].StartDate}!
-
 Please email me at {![Campaign].Owner.Email} if you are interested.
 ```
 
-![Set the Action](5.4 - Configure Apex Class.png)
-TBD: replace with new screen shot
+![Set the Action](1.3 - chatter post action.png)
 
 Now add an action that creates a Campaign Member for the Instructor, mapping values from the Campaign as follows:
 Campaign ID | Reference | [Campaign.Id]
