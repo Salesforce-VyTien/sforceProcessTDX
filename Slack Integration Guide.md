@@ -70,6 +70,8 @@ Campaign ID | Reference | [Campaign.Id]
 Contact ID | Reference | [Campaign.Instructor__c.Id]
 Status | Picklist | Planned
 
+Remove the Lead ID row. Save.
+
 ![Set the Action](5.4 - Configure Apex Class.png)
 TBD: replace with new screen shot
 
