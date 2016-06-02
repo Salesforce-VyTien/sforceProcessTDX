@@ -22,8 +22,8 @@ There is some data model pre-work before you get to the process automation tools
 1. Create a custom object named Class with one Long Text field named Description.
 2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to Contact); edit Campaign Type picklist to include DEV Class
 3. Create Women in Tech Chatter Group: set Group Access to Public
-4. Create sample data: at least one Instructor, create as Chatter External user and as Contact
-5. Create sample data: at least one Teaching Assistant, create as Chatter External user and as Contact [license = Chatter Free, profile = Chatter Free User]
+4. Create sample data: at least one Instructor, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
+5. Create sample data: at least one Teaching Assistant, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
 6. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
 7. Enable Thanks on Global Publisher: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
 
@@ -57,7 +57,7 @@ Next add an action that posts to Chatter, using merge fields and @mentions to fi
 Chatter message should read:
 
 HELP WANTED!
-I'm looking for Teaching Assistant volunteers for a [Class Name] class taught by @Instructor Name on [Start Date]!
+I'm looking for Teaching Assistant volunteers for a [Class Name] class taught by @[{![Campaign].Instructor__c.FirstName} {![Campaign].Instructor__c.LastName}] on [Start Date]!
 Please email me at [Owner Email] if you are interested.
 
 ![Set the Action](5.4 - Configure Apex Class.png)
