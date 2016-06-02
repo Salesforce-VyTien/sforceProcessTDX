@@ -21,10 +21,11 @@ There is some data model pre-work before you get to the process automation tools
 ### Pre-Work Steps
 1. Create a custom object named Class with one Long Text field named Description.
 2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to Contact); edit Campaign Type picklist to include DEV Class
-3. Create Women in Tech Chatter Group: Private, Allow Customers
+3. Create Women in Tech Chatter Group: set Group Access to Public
 4. Create sample data: at least one Instructor, create as Chatter External user and as Contact
-5. Create sample data: at least one Teaching Assistant, create as Chatter External user and as Contact
+5. Create sample data: at least one Teaching Assistant, create as Chatter External user and as Contact [license = Chatter Free, profile = Chatter Free User]
 6. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
+7. Enable Thanks on Global Publisher: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
 
 ## 1 - Automating Processes for New Class Sessions, Part 1
 As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign): the Class, an Instructor, and the Date. Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
@@ -41,7 +42,6 @@ As the Chapter Leader, you've done the legwork to identify the starting point fo
 These first two automations can be done right within the Process Builder, completely declaratively! 
 
 Lets fire up our Process Builder and create this rule.
-![Create Process](5.0 - create process.png)
 
 Click New and populate the details of your new Process.
 
@@ -54,6 +54,12 @@ Select the Campaign object, then add the selection criteria. i.e. When does the 
 TBD: replace with new screen shot
 
 Next add an action that posts to Chatter, using merge fields and @mentions to fill in the details.
+Chatter message should read:
+
+HELP WANTED!
+I'm looking for Teaching Assistant volunteers for a [Class Name] class taught by @Instructor Name on [Start Date]!
+Please email me at [Owner Email] if you are interested.
+
 ![Set the Action](5.4 - Configure Apex Class.png)
 TBD: replace with new screen shot
 
