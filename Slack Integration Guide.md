@@ -46,8 +46,7 @@ Lets fire up our Process Builder and create this rule.
 
 Click New and populate the details of your new Process.
 
-![New Process](5.2 - new process window.png)
-TBD: replace with new screen shot
+![New Process](1.1 - new process window.png)
 
 Select the Campaign object, then add the selection criteria. i.e. When does the action need to fire? In our case, Campaigns are used for many things, so we only want to fire these actions when it is a DEV Class type of Campaign, and we only want to do this for new Campaigns. Notice here we could add plenty of different conditions if required. 
 
