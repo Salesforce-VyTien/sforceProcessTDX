@@ -2,7 +2,9 @@
 
 ## Introduction
 
-In this project we will be creating three different process automation steps and combining them to provide a solution to managing Teaching Assistants for web development classes. Class sessions are modeled as Campaigns. The Chapter Leader creates a new Campaign once a Date, Location, and Instructor have been identified for a class. The Chapter Leader updates the Campaign Status to In Progress once they have enough Teaching Assistants for the class. Instructors and Teaching Assistants are modeled as Contacts.
+In this project we will be using three different process automation tools and combining them to provide a solution to managing Instructors and Teaching Assistants for web development classes. Class details are stored in a custom object. Class sessions are modeled as Campaigns. The Chapter Leader creates a new Campaign once a Date, Location, and Instructor have been identified for a class. The Chapter Leader updates the Campaign Status to In Progress once they have enough Teaching Assistants for the class. Instructors and Teaching Assistants are modeled as Contacts.
+
+TBD: screen shot of data model
 
 There are three process automation tools that you will use:
 * Process Builder - orchestrate all automation steps, recruit Teaching Assistants for the new session via Chatter, and create a Campaign Member child record 
@@ -12,6 +14,18 @@ There are three process automation tools that you will use:
 Let's get started! 
 
 this is how to make a URL in markup [heavy lifting](http://coenraets.org/blog/2016/04/salesforce-slack-bot/) 
+
+## 0 - Defining the Data Model
+There is some pre-work before you get to the process automation tools. You need to define the data model. Class details are stored in a custom object. Class sessions are modeled as Campaigns, and the Instructor is added to the Campaign. Instructors and Teaching Assistants are modeled as Contacts and also need to be listed as Campaign Members.
+
+### What you will do
+1. Create a custom object named Class with one Long Text field named Description.
+2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to Contact); edit Campaign Type picklist to include GDI Class
+3. Customize Campaign Member: add field for Class Role (Picklist with values Instructor, Teaching Assistant)
+4. Create Women in Tech Chatter Group: Private, Allow Customers
+5. Create sample data: at least one Instructor, create as Chatter External user and as Contact
+6. Create sample data: at least one Teaching Assistant, create as Chatter External user and as Contact
+7. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
 
 ## 1 - Automating Processes for New Class Sessions
 As the Chapter Leader, you've done the legwork to identify the starting point for a new class session. Now you need to get it into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part.
