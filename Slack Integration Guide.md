@@ -1,4 +1,4 @@
-#Salesforce Process Automation
+#Salesforce Process Automation Tools
 
 ## Introduction
 
@@ -16,7 +16,7 @@ Let's get started!
 this is how to make a URL in markup [heavy lifting](http://coenraets.org/blog/2016/04/salesforce-slack-bot/) 
 
 ## 0 - Defining the Data Model
-There is some pre-work before you get to the process automation tools. You need to define the data model. Class details are stored in a custom object. Class sessions are modeled as Campaigns, and the Instructor is added to the Campaign. Instructors and Teaching Assistants are modeled as Contacts and also need to be listed as Campaign Members.
+There is some data model pre-work before you get to the process automation tools. Class details are stored in a custom object. Class sessions are modeled as Campaigns, and the Instructor is added to the Campaign. Instructors and Teaching Assistants are modeled as External Chatter users AND Contacts and also need to be listed as Campaign Members.
 
 ### Pre-Work Steps
 1. Create a custom object named Class with one Long Text field named Description.
@@ -28,7 +28,7 @@ There is some pre-work before you get to the process automation tools. You need 
 7. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
 
 ## 1 - Automating Processes for New Class Sessions
-As the Chapter Leader, you've done the legwork to identify the starting point for a new class session. Now you need to get it into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part.
+As the Chapter Leader, you've done the legwork to identify the starting point for a new class session: the Class, an Instructor, and the Date. Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
 
 ### What you will do
 1. Create a process in Process Builder for the Campaign object
