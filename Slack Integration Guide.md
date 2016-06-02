@@ -50,8 +50,7 @@ Click New and populate the details of your new Process.
 
 Select the Campaign object, then add the selection criteria. i.e. When does the action need to fire? In our case, Campaigns are used for many things, so we only want to fire these actions when it is a Dev Class type of Campaign, and we only want to do this for new Campaigns. Notice here we could add plenty of different conditions if required. 
 
-![Process Criteria](5.3 - Process Criteria.png)
-TBD: replace with new screen shot
+![Process Criteria](1.2 - dev class process criteria.png)
 
 Next add an action that posts to Chatter, using merge fields and @mentions to fill in the details.
 Chatter message should read:
