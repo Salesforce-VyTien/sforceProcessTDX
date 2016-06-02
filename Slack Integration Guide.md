@@ -20,7 +20,7 @@ There is some data model pre-work before you get to the process automation tools
 
 ### Pre-Work Steps
 1. Create a custom object named Class with one Long Text field named Description.
-2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to Contact); edit Campaign Type picklist to include DEV Class
+2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to Contact); edit Campaign Type picklist to include Dev Class
 3. Create Women in Tech Chatter Group: set Group Access to Public
 4. Create sample data: at least one Instructor, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
 5. Create sample data: at least one Teaching Assistant, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
@@ -48,7 +48,7 @@ Click New and populate the details of your new Process.
 
 ![New Process](1.1 - new process window.png)
 
-Select the Campaign object, then add the selection criteria. i.e. When does the action need to fire? In our case, Campaigns are used for many things, so we only want to fire these actions when it is a DEV Class type of Campaign, and we only want to do this for new Campaigns. Notice here we could add plenty of different conditions if required. 
+Select the Campaign object, then add the selection criteria. i.e. When does the action need to fire? In our case, Campaigns are used for many things, so we only want to fire these actions when it is a Dev Class type of Campaign, and we only want to do this for new Campaigns. Notice here we could add plenty of different conditions if required. 
 
 ![Process Criteria](5.3 - Process Criteria.png)
 TBD: replace with new screen shot
