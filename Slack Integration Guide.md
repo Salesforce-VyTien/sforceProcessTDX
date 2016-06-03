@@ -81,10 +81,10 @@ Your functioning process should now be ready to test. Pretend you are the Chapte
 2. Refresh the Campaign page. Is there a new Campaign Member record?
 3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
 
-## Automating Processes for New Class Sessions, Part 2
+## 2 - Automating Processes for New Class Sessions, Part 2
 The next automation requires querying Contacts to create one or more Campaign Members. This is something we cannot do with just the Process Builder capabilities. This is where Flow comes in.
 
-## Automating Class Session Completion
+## 3 - Automating Class Session Completion
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
 
 ###Apex Class
