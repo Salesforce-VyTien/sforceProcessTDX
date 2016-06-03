@@ -168,18 +168,21 @@ Click New and populate the details of your new Process.
 
 ![New Process](5.2 - new process window.png)
 
-Select the Opportunity object, then add the selection criteria. i.e. When does the action need to fire? In our case, we want to notify our project teams through Slack when an Opporunity record changes stage. Notice here we could add plenty of different conditions if required, we might not want to spam our team with every minor detail? 
+Select the Campaign object and specify to start the process when a record is created or edited. Then add the selection criteria. i.e. When does the action need to fire? In our case, we want to thank our Instructors only when a class is complete and also only for Dev Class campaigns (not ALL campaigns!). 
 
 ![Process Criteria](5.3 - Process Criteria.png)
 
-Now we can add an action that calls our fresly minted Apex class, ready to accept the two parameters that we annotated with the @InnvocableVariable annotation.
+Now we can add an action that calls our fresly minted Apex class, ready to accept the four parameters that we annotated with the @InnvocableVariable annotation.
 ![Set the Action](5.4 - Configure Apex Class.png)
 
+Finally, Activate the process.
+
 ### Test
-Your functioning integration should now be ready to test. Go ahead and login to Slack
+Your functioning process should now be ready to test. Pretend you are the Chapter Leader and follow these steps:
+1. Edit an existing Campaign of Type = Dev Class. Set the Status to Completed. Save.
+2. Go to the Chatter tab. Is there a new post, thanking the Instructor? Does it have the Thanks badge?
 
-[![Process Builder](6.3 - Step1Video.png)](https://youtu.be/M8gEkDk0bto)
-
+TBD: screen shot of thanks post
 
 ## 2 - View Salesforce Data Using Slash Commands
 Now our project team is fully aware of the latest and greatest news on deals in real time from Salesforce, but what if they wanted to interact with Salesforce data themselves? Should these users really have to leave their beloved Slack interface if they just wanted to see a few opportunities, contacts or to create a simple case? Luckily we have a few handy developers on staff who can pull together a little integration that will allow just this. Lets have a look at [Slack Slash Commands](https://api.slack.com/slash-commands) and another awesome component from the Salesforce App Cloud, Heroku. 
