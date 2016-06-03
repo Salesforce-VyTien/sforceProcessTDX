@@ -82,60 +82,82 @@ Your functioning process should now be ready to test. Pretend you are the Chapte
 3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
 
 ## Automating Processes for New Class Sessions, Part 2
-The next automation requires concatenating values from multiple lookups.  is something we cannot do with just the Process Builder capabilities. This is where Flow Now we have an endpoint configured and listening for something, its time to configure Salesforce to send the messages to Slack. We are going to do this by writing a small piece of Apex code that will be fired from a process we define in the Process Builder
+The next automation requires querying Contacts to create one or more Campaign Members. This is something we cannot do with just the Process Builder capabilities. This is where Flow comes in.
+
+## Automating Class Session Completion
+The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
 
 ###Apex Class
-Now we can create the Apex code that is capable of posting a message to this newly configured Webhook URL. The methods and classes here will allow Opportunity Name and Stage fields to be posted out to the the URL. 
+Now we can create the Apex code that is capable of posting a Thanks badge to our awesome Instructor's profile page. The methods and classes here will allow Badge Name, Giver ID, Receiver ID and Thanks Message to be passed in from the process we define in Process Builder. 
 
 ```
-public with sharing class SlackOpportunityPublisher {
-     
-    private static final String slackURL = 'YOUR_WEBHOOK_URL';
-     
-    public class Oppty {
-        @InvocableVariable(label='Opportunity Name')
-        public String opptyName;
-        @InvocableVariable(label='Stage')
-        public String stage;
-    }
-     
-    @InvocableMethod(label='Post to Slack')
-    public static void postToSlack(List<Oppty> oppties) {
-        Oppty o = oppties[0]; // If bulk, only post first to avoid overloading Slack channel
-        Map<String,Object> msg = new Map<String,Object>();
-        msg.put('text', 'The following opportunity has changed:\n' + o.opptyName + '\nNew Stage: *' + o.stage + '*');
-        msg.put('mrkdwn', true);
-        String body = JSON.serialize(msg);    
-        System.enqueueJob(new QueueableSlackCall(slackURL, 'POST', body));
-    }
-     
-    public class QueueableSlackCall implements System.Queueable, Database.AllowsCallouts {
-         
-        private final String url;
-        private final String method;
-        private final String body;
-         
-        public QueueableSlackCall(String url, String method, String body) {
-            this.url = url;
-            this.method = method;
-            this.body = body;
+global without sharing class GiveWorkThanksAction {
+
+    @InvocableMethod(label='Give a Thanks Badge')
+    global static void giveWorkBadgeActionsBatch(List<GiveWorkThanksRequest> requests) {
+        for(GiveWorkThanksRequest request: requests){
+            giveWorkBadgeAction(request);
         }
-         
-        public void execute(System.QueueableContext ctx) {
-            HttpRequest req = new HttpRequest();
-            req.setEndpoint(url);
-            req.setMethod(method);
-            req.setBody(body);
-            Http http = new Http();
-            HttpResponse res = http.send(req);
-        }
- 
     }
-    
+
+    public static void giveWorkBadgeAction(GiveWorkThanksRequest request) {
+        WorkThanks newWorkThanks = new WorkThanks();
+
+                newWorkThanks.GiverId = request.giverId;
+                newWorkThanks.Message = request.thanksMessage;
+                newWorkThanks.OwnerId = request.giverId;
+
+        insert newWorkThanks;
+
+
+        WorkBadge newWorkBadge = new WorkBadge();
+
+                // newWorkBadge.DefinitionId should be set to the ID for the Competitor Badge within this Org
+                WorkBadgeDefinition workBadgeDef = [SELECT Id,Name FROM WorkBadgeDefinition WHERE Name = :request.badgeName Limit 1];
+
+                newWorkBadge.DefinitionId = workBadgeDef.Id;
+                newWorkBadge.RecipientId = request.receiverId;
+                newWorkBadge.SourceId = newWorkThanks.Id ;
+                //newWorkBadge.GiverId = request.giverId;
+
+        insert newWorkBadge;
+
+        WorkThanksShare newWorkThanksShare = new WorkThanksShare();
+
+                newWorkThanksShare.ParentId = newWorkThanks.Id ;
+                newWorkThanksShare.UserOrGroupId = request.receiverId;
+
+                newWorkThanksShare.AccessLevel = 'Edit';
+                insert newWorkThanksShare;
+
+        FeedItem post = new FeedItem();
+
+                post.ParentId = request.receiverId;
+                post.CreatedById = request.giverId;
+                post.Body = request.thanksMessage;
+                post.RelatedRecordId = newWorkThanks.Id ;
+                post.Type = 'RypplePost';
+
+        insert post;
+
+    }
+
+    global class GiveWorkThanksRequest {
+        @InvocableVariable(label='Giver Id' required=true)
+        global Id giverId;
+
+        @InvocableVariable(label='Receiver Id' required=true)
+        global Id receiverId;
+
+        @InvocableVariable(label='Thanks Message' required=true)
+        global String thanksMessage;
+
+        @InvocableVariable(label='Badge Name' required=true)
+        global String badgeName;
+    }
 }
 ```
-Notice the [@InvocableVariable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableVariable.htm) and [@InvocableMethod](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableMethod.htm) annotations on this class that allow these methods to be exposed to the configuration tools in the Salesforce system. Other interesting Apex features in this code are the use of [System.Queueable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_class_System_Queueable.htm%23apex_class_System_Queueable) and [Database.AllowsCallouts](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_batch_interface.htm) interfaces that are being used. 
-
+Notice the [@InvocableVariable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableVariable.htm) and [@InvocableMethod](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableMethod.htm) annotations on this class that allow these methods to be exposed to the configuration tools in the Salesforce system. 
 
 ### Build the Process
 Now we can define the business process that will cause the notifcation to fire and be propogated into Slack. Here we get to see one of the really powerful features of Salesforce when you writing code, the amount of code you don't have to write! As a developer all we needed to do was build a small module that took some parameters and passed them to our Slack endpoint, the who, when and why of this integration is now completely declarative! 
