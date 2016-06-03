@@ -81,9 +81,6 @@ Your functioning process should now be ready to test. Pretend you are the Chapte
 2. Refresh the Campaign page. Is there a new Campaign Member record?
 3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
 
-[![Process Builder](6.3 - Step1Video.png)](https://youtu.be/M8gEkDk0bto)
-TBD: replace with new screen shot
-
 ## Automating Processes for New Class Sessions, Part 2
 The next automation requires concatenating values from multiple lookups.  is something we cannot do with just the Process Builder capabilities. This is where Flow Now we have an endpoint configured and listening for something, its time to configure Salesforce to send the messages to Slack. We are going to do this by writing a small piece of Apex code that will be fired from a process we define in the Process Builder
 
