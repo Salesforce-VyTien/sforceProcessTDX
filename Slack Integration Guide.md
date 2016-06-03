@@ -64,13 +64,14 @@ Please email me at {![Campaign].Owner.Email} if you are interested.
 
 Now add an action that creates a Campaign Member for the Instructor, mapping values from the Campaign as follows:
 * Campaign ID | Reference | [Campaign.Id]
-* Contact ID | Reference | [Campaign.Instructor__c.Id]
+* Contact ID | Reference | [Campaign.Instructor__c.Id] 
 * Status | Picklist | Planned
+
+Note: to select the Campaign.Instructor__c.Id, choose Instructor, then Contact ID.
 
 Remove the Lead ID row, then Save.
 
-![Set the Action](5.4 - Configure Apex Class.png)
-TBD: replace with new screen shot
+![Set the Action](1.4 - create record action.png)
 
 Finally, Activate the process.
 
