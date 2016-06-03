@@ -181,6 +181,8 @@ Finally, Activate the process.
 Your functioning process should now be ready to test. Pretend you are the Chapter Leader and follow these steps:
 1. Edit an existing Campaign of Type = Dev Class. Set the Status to Completed. Save.
 2. Go to the Chatter tab. Is there a new post, thanking the Instructor? Does it have the Thanks badge?
+ 
+What else will you need to do before you can deploy this process in the production?
 
 TBD: screen shot of thanks post
 
