@@ -20,7 +20,7 @@ There is some data model pre-work before you get to the process automation tools
 
 ### Pre-Work Steps
 1. Create a custom object named Class with one Long Text field named Description.
-2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to Contact); edit Campaign Type picklist to include Dev Class
+2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to User); edit Campaign Type picklist to include Dev Class
 3. Create Women in Tech Chatter Group: set Group Access to Public
 4. Create sample data: at least one Instructor, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
 5. Create sample data: at least one Teaching Assistant, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
@@ -160,10 +160,9 @@ global without sharing class GiveWorkThanksAction {
 Notice the [@InvocableVariable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableVariable.htm) and [@InvocableMethod](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableMethod.htm) annotations on this class that allow these methods to be exposed to the configuration tools in the Salesforce system. 
 
 ### Build the Process
-Now we can define the business process that will cause the notifcation to fire and be propogated into Slack. Here we get to see one of the really powerful features of Salesforce when you writing code, the amount of code you don't have to write! As a developer all we needed to do was build a small module that took some parameters and passed them to our Slack endpoint, the who, when and why of this integration is now completely declarative! 
+Now we can define the business process that will cause the Thanks automation to fire and post a badge to the Instructor. Here we get to see one of the really powerful features of Salesforce when you are writing code, the ability to bridge from clicks to code seamlessly! 
 
 Lets fire up our Process Builder and create this rule.
-![Create Process](5.0 - create process.png)
 
 Click New and populate the details of your new Process.
 
