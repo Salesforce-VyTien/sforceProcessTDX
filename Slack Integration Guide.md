@@ -166,14 +166,15 @@ Lets fire up our Process Builder and create this rule.
 
 Click New and populate the details of your new Process.
 
-![New Process](5.2 - new process window.png)
+![New Process](3.1 - completed class sessions.png)
 
 Select the Campaign object and specify to start the process when a record is created or edited. Then add the selection criteria. i.e. When does the action need to fire? In our case, we want to thank our Instructors only when a class is complete and also only for Dev Class campaigns (not ALL campaigns!). 
 
-![Process Criteria](5.3 - Process Criteria.png)
+![Process Criteria](3.2 - complete class session criteria.png)
 
 Now we can add an action that calls our fresly minted Apex class, ready to accept the four parameters that we annotated with the @InnvocableVariable annotation.
-![Set the Action](5.4 - Configure Apex Class.png)
+
+![Set the Action](3.3 - class apex method.png)
 
 Finally, Activate the process.
 
@@ -182,9 +183,9 @@ Your functioning process should now be ready to test. Pretend you are the Chapte
 1. Edit an existing Campaign of Type = Dev Class. Set the Status to Completed. Save.
 2. Go to the Chatter tab. Is there a new post, thanking the Instructor? Does it have the Thanks badge?
  
-What else will you need to do before you can deploy this process in the production?
+![Thanks Badge](3.4 - thanks badge.png)
 
-TBD: screen shot of thanks post
+What else will you need to do before you can deploy this process in the production?
 
 ## 2 - View Salesforce Data Using Slash Commands
 Now our project team is fully aware of the latest and greatest news on deals in real time from Salesforce, but what if they wanted to interact with Salesforce data themselves? Should these users really have to leave their beloved Slack interface if they just wanted to see a few opportunities, contacts or to create a simple case? Luckily we have a few handy developers on staff who can pull together a little integration that will allow just this. Lets have a look at [Slack Slash Commands](https://api.slack.com/slash-commands) and another awesome component from the Salesforce App Cloud, Heroku. 
