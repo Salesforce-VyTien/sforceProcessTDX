@@ -137,6 +137,23 @@ Select the Palette tab. Drag the Fast Lookup element onto the canvas. In General
 
 ![Find Chapter TAs](2.9 - find chapter tas2.png)
 
+### Define Loop and Assignment
+Now we need to iterate through the ChapterTAContacts collection to map the values to the TACampaignMembers collection.
+
+From the Pallete tab, drag the Loop element onto the canvas. Fill in the information. 
+
+![Loop Contacts](2.10 - loop contacts.png)
+
+From the Pallete tab, drag the Assignment element onto the canvas. Fill in the information. This is where we use the Campaign ID we've passed from the Process Builder process.
+
+![Assignment](2.11 - assign contacts to campaign members.png)
+
+
+Select the Palette tab. Drag the Fast Lookup element onto the canvas. In General Settings, set the Name to Find Chapter TAs. The Unique Name will default to Find_Chapter_TAs. Then fill in the Filters and Assignments information.
+
+![Find Chapter TAs](2.9 - find chapter tas2.png)
+
+
 Don't forget to set the Fast Lookup as the Start element 
 
 TBD: screen shot
