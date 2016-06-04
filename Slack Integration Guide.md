@@ -113,13 +113,21 @@ In the Resources tab, double-click Variable and fill in the information for the 
 
 ![Account Variable](2.4 - account variable.png)
 
-Double-click SObject Collection Variable and fill in the information for the Contact collection variable. Input/Output type should be Private.
+Double-click SObject Collection Variable and fill in the information for the Contact collection variable. This is where you will store the Teaching Assistant records retrieved from the Contact object. Input/Output type should be Private.
 
 ![Contact Collection Variable](2.5 - contact collection variable.png)
 
 Double-click SObject Variable and fill in the information for a Contact single record variable. This is used as temporary storage when looping through the Contact collection variable. Input/Output type should be Private.
 
 ![Contact Variable](2.6 - contact variable.png)
+
+Double-click SObject Variable and fill in the information for a Campaign single record variable. This is used as temporary storage when assigning values for the new Campaign Members. Input/Output type should be Private.
+
+![Campaign Member Variable](2.7 - campaign member variable.png)
+
+Double-click SObject Collection Variable and fill in the information for the Campaign Member collection variable. This is used to create new Campaign Member records. Input/Output type should be Private.
+
+![Campaign Member Collection Variable](2.8 - campaign member collection variable.png)
 
 
 
