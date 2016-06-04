@@ -18,7 +18,7 @@ this is how to make a URL in markup [heavy lifting](http://coenraets.org/blog/20
 ## 0 - Defining the Data Model
 There is some data model pre-work before you get to the process automation tools. Class sessions are modeled as Campaigns, and the Chapter and Instructor are added to the Campaign. Instructors are modeled as Salesforce licensed Users (because they need access to Work.com) AND Contacts so that they can be listed as Campaign Members. Teaching Assistants are modeled as Chatter Free licenced Users so that they have access to the Chatter group AND Contacts so that they can be listed as Campaign Members. Yes, this is fraught with peril, but it's just a sample app...roll with it.
 
-![Data Model](1.1 - new process window.png)
+![Data Model](0.1 - data model.png)
 
 ### Pre-Work Steps
 1. Customize Campaign: add field for Chapter (Lookup to Account); add field for Instructor (Lookup to User); edit Campaign Type picklist to include Dev Class
@@ -44,6 +44,7 @@ As the Chapter Leader, you've done the legwork to identify the starting point fo
 These first two automations can be done right within the Process Builder, completely declaratively! 
 
 Lets fire up our Process Builder and create this rule.
+![Create Process](5.0 - create process.png)
 
 Click New and populate the details of your new Process.
 
