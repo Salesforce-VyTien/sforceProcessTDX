@@ -153,10 +153,13 @@ Select the Palette tab. Drag the Fast Create element onto the canvas. Fill in th
 
 ![Fast Create Campaign Members](2.12 - fast create campaign members.png)
 
-### Just a Few Details
-Right now your 4 Flow elements are disconnected and the Flow engine doesn't know where to start. 
+### Tell the Flow Engine What to Do
+Right now your four Flow elements are disconnected and the Flow engine doesn't know where to start. To connect the elements, click the diamond at the bottom of one element and drag to another element to draw a connector line. 
 
-Click the diamond at the bottom of one element and drag to another element to draw a connector line. Do this between Fast Lookup and Loop, between Loop and Assignment, and between Loop and Fast Create. 
+Connect these elements, in this order:
+1. Fast Lookup and Loop
+2. Loop and Assignment
+3. Loop and Fast Create 
 
 Hover over the Fast Loopkup element and click the little green arrow that appears. That marks the Fast Lookup as the starting element.
 
