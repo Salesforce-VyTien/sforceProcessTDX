@@ -39,11 +39,11 @@ As the Chapter Leader, you've done the legwork to identify the starting point fo
 4. Add an Action to create a Campaign Member record for the Instructor
 5. Activate and test the process
 
-## Automating with Process Builder...
 ### Create Process and Define Criteria
 These first two automations can be done right within the Process Builder, completely declaratively! 
 
 Lets fire up our Process Builder and create this rule.
+
 ![Create Process](5.0 - create process.png)
 
 Click New and populate the details of your new Process.
@@ -85,6 +85,30 @@ Your functioning process should now be ready to test. Pretend you are the Chapte
 
 ## 2 - New Class Sessions: Automating with Flow
 The next automation requires querying Contacts to create one or more Campaign Members. This is something we cannot do with just the Process Builder capabilities. This is where Flow comes in.
+
+### What you will do
+1. Create a new Flow
+2. Add a Fast Lookup to find Contacts for the Chapter
+3. Add a Loop to iterate through the collection of Contacts
+4. Add an Assignment to map the Contact ID and Campaign ID into a Campaign Member Collection
+5. Add a Fast Create to create Campaign Members from the collection
+6. Activate and test the process
+
+### Create Flow and Define Input Variables
+Process Builder will pass in variables to the Flow for Campaign ID (aka Class Session) and Account ID (aka Chapter). 
+
+Lets fire up Flow to start building.
+![Create Flow](2.1 - flow in setup.png)
+
+Click New Flow and select the Resources tab.
+
+![New Resource](2.2 - resources tab.png)
+
+Double-click Variable and fill in the information for the Campaign ID variable. Do it again for the Account ID variable. Remember to set the Input/Output Type to Input Only. This will expose the variable in the Process Builder.
+
+![Campaign Variable](2.3 - campaign variable.png)
+
+![Account Variable](2.4 - account variable.png)
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
