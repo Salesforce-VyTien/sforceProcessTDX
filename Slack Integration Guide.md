@@ -148,13 +148,16 @@ From the Pallete tab, drag the Assignment element onto the canvas. Fill in the i
 
 ![Assignment](2.11 - assign contacts to campaign members.png)
 
+### Define Fast Create
+Now we have what we need to create the new Campaign Member records for the potential Teaching Assistants! We can do that by provide the Fast Create element with the SObject Collection variable we've populated. Boom, that's it!
 
-Select the Palette tab. Drag the Fast Lookup element onto the canvas. In General Settings, set the Name to Find Chapter TAs. The Unique Name will default to Find_Chapter_TAs. Then fill in the Filters and Assignments information.
+Select the Palette tab. Drag the Fast Create element onto the canvas. Fill in the information.
 
-![Find Chapter TAs](2.9 - find chapter tas2.png)
+![Fast Create Campaign Members](2.12 - fast create campaign members.png)
 
+Don't forget to connect all of the steps. 
 
-Don't forget to set the Fast Lookup as the Start element 
+Don't forget to set the Fast Lookup as the Start element.
 
 TBD: screen shot
 
