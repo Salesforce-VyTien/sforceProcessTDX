@@ -135,7 +135,7 @@ With the Account ID variable passed in from the Process Builder process, we can 
 
 Select the Palette tab. Drag the Fast Lookup element onto the canvas. In General Settings, set the Name to Find Chapter TAs. The Unique Name will default to Find_Chapter_TAs. Then fill in the Filters and Assignments information.
 
-![Find Chapter TAs](2.9 - find chapter tas.png)
+![Find Chapter TAs](2.9 - find chapter tas2.png)
 
 Don't forget to set the Fast Lookup as the Start element 
 
