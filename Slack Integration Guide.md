@@ -42,11 +42,11 @@ As the Chapter Leader, you've done the legwork to identify the starting point fo
 ### Create Process and Define Criteria
 These first two automations can be done right within the Process Builder, completely declaratively! 
 
-Lets fire up our Process Builder and create this rule.
+Lets fire up our Process Builder and create this process.
 
 ![Create Process](5.0 - create process.png)
 
-Click New and populate the details of your new Process.
+Click New and populate the details of your new process.
 
 ![New Process](1.1 - new process window.png)
 
@@ -79,8 +79,8 @@ Finally, Activate the process.
 
 ### Test
 Your functioning process should now be ready to test. Pretend you are the Chapter Leader and follow these steps:
-1. Enter a new Campaign record, setting the Campaign Type = DEV Class; Class field = your sample class; Start Date = any date; Instructor = your sample instructor. Save.
-2. Refresh the Campaign page. Is there a new Campaign Member record?
+1. Enter a new Campaign record, setting the Campaign Type = Dev Class; Start Date = any date; Instructor = your sample instructor; Chapter = your sample account. Save.
+2. Look in the Campaign Member related list for your new Campaign. Is there a new Campaign Member record?
 3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
 
 ## 2 - New Class Sessions: Automating with Flow
@@ -177,6 +177,31 @@ Click Close. Now you should be on the Flow Detail page. Your Flow is listed in t
 
 ![Activate Flow](2.15 - activate flow.png)
 
+### Add the Flow to your Process
+We want the potential Teaching Assistants added as Campaign Members for all new Campaigns for Dev Classes, so we should add this to the process we built in Step 1 because that is firing for all new Campaigns of Type = Dev Class. Calling a Flow from a process in Process Builder gives us the extra power we need for this automation, while keeping it in one place to make it easy to maintain and to explain to the business.
+
+Fire up Process Builder and edit your existing process: New Class Sessions. Oh no, you can't! Flows cannot be modified once they have been activated. To modify a Flow, Clone it first. I suggest saving the clone as a version of the current process, which is the default setting.
+
+Now you can add an action that calls your brand new Flow, and provide values for the two input variables you defined in the Flow.
+* AccountIDFromPB | Reference | [Campaign.Chapter__c]
+* CampaignIDFromPB | Reference | [Campaign.Id] 
+
+![Set the Action](2.16 - call flow from pb.png)
+
+Finally, Activate the process. Activating this cloned Flow will deactivate the Flow you created and activated earlier. Only one version of a Flow can be activate at a time.
+
+### Test
+Your functioning process should now be ready to test. Once again, pretend you are the Chapter Leader and follow the same steps as above:
+1. Enter a new Campaign record, setting the Campaign Type = Dev Class; Start Date = any date; Instructor = your sample instructor; Chapter = your sample account. Save.
+2. Look in the Campaign Member related list for your new Campaign. Is there more than one new Campaign Member record? There should be (assuming you created some Contacts for the same Account that you set the Chapter field to).
+3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
+
+ 
+![Thanks Badge](3.4 - thanks badge.png)
+
+What else will you need to do before you can deploy this process in the production?
+
+
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
 
@@ -255,7 +280,7 @@ Notice the [@InvocableVariable](https://developer.salesforce.com/docs/atlas.en-u
 ### Build the Process
 Now we can define the business process that will cause the Thanks automation to fire and post a badge to the Instructor. Here we get to see one of the really powerful features of Salesforce when you are writing code, the ability to bridge from clicks to code seamlessly! 
 
-Lets fire up our Process Builder and create this rule.
+Fire up Process Builder and create this rule.
 
 Click New and populate the details of your new Process.
 
@@ -265,7 +290,7 @@ Select the Campaign object and specify to start the process when a record is cre
 
 ![Process Criteria](3.2 - complete class session criteria.png)
 
-Now we can add an action that calls our fresly minted Apex class, ready to accept the four parameters that we annotated with the @InnvocableVariable annotation.
+Now we can add an action that calls our freshly minted Apex class, ready to accept the four parameters that we annotated with the @InnvocableVariable annotation.
 * Badge Name | String | Thanks
 * Giver ID | Reference | [Campaign.OwnerId] 
 * Receiver ID | Reference | [Campaign.Instructor__c] 
@@ -284,120 +309,5 @@ Your functioning process should now be ready to test. Pretend you are the Chapte
 
 What else will you need to do before you can deploy this process in the production?
 
-## 2 - View Salesforce Data Using Slash Commands
-Now our project team is fully aware of the latest and greatest news on deals in real time from Salesforce, but what if they wanted to interact with Salesforce data themselves? Should these users really have to leave their beloved Slack interface if they just wanted to see a few opportunities, contacts or to create a simple case? Luckily we have a few handy developers on staff who can pull together a little integration that will allow just this. Lets have a look at [Slack Slash Commands](https://api.slack.com/slash-commands) and another awesome component from the Salesforce App Cloud, Heroku. 
-
-We want to setup a few different scenarios here :
-* Show the top opportunities from Salesforce  (/pipeline[number to show])
-* Search for a Salesforce Contact in the Slack UI (/contact[search key])
-* Create a customer service Case from the Slack UI (/case[subject:description])
-
-To achieve this we are going to :
-* Setup a Salesforce Connected App
-* Create a Node.js application that will serve as the proxy between Salesforce and Slack (well, actually we are just going to copy one!)
-* Configure Slash Commands in Slack
-
-![Slack to Salesforce](6.4 - Slack to Salesforce.png)
-
-### Architecture
-We need to setup a small Heroku app to broker the communcation between Slack and Salesforce. This app is going to use [Node.js](https://nodejs.org/) and the [nForce](https://github.com/kevinohara80/nforce) module to provide convenience methods for accessing Salesforce. If you have yet to get your [Heroku](www.heroku.com) account, head over and sign up for the free tier. 
-
-![Heroku Sign Up](7.1 - sIgnupHeroku.png)
-
-We need to let Salesforce know that an application is going to want to use the API, so we have to configure a the Connected App in our developer environment. Go to Apps to create a new Connected App. 
-
-![New Connected App](7.2 - ConnectAppConfig.png)
-
-Configure, don't worry about the callback URL yet as we are going to change that later! 
-
-![Configure Connected App](7.3 - ConnectedAppConfig.png)
-
-Now we can deploy this [application](https://github.com/ccoenraets/slackforce) into our newly (or well used) Heroku environment, it is a trivial thing to deploy this appliction thanks to Heroku... try it, just click this button. 
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ccoenraets/slackforce)
-
-You will be asked to configure some properites on this application
-
-* SF_CLIENT_ID - enter the Consumer Key of your Salesforce Connected App
-* SF_CLIENT_SECRET - enter the Consumer Secret of you Salesforce Connected App
-* SF_USER_NAME - this is the username of the Salesforce integration user
-* SF_PASSWORD - this is the password for this user
-* SLACK_OPPORTUNITY_TOKEN, SLACK_CONTACT_TOKEN and SLACK_CASE_TOKEN are blank for now (we get back to this)
-
-Once you have deployed, you should see the an output similar to this. 
-
-![Success Heroku](7.4 - SuccessDeploy.png)
-
-### Create the Slack Commands
-We now need to do some configuration work in the Slack UI to create the actual Slack commands that end users will need. In your browser, open up Slack (if you haven't already). As an example, my Slack team URL is https://sforce-slack-demo.slack.com. We are going to add another integration, however this time we will add Slash Command (remember our first one was a Webhook)
-
-![Add Integration](8.0 - AddIntegration.png)
-
-![Add Slash Command](8.1 - SlashCommand.png)
-
-Click install and then add the following commands to your Team.
-
-
-Command | URL | Method | Custom Name
---------|-----|--------|------------
-/pipeline | https://app_name.herokuapp.com/pipeline | POST | Top Opportunities
-/contact | https://app_name.herokuapp.com/contact | POST | Salesforce Contacts
-/case | https://app_name.herokuapp.com/case | POST | Salesforce Cases
-
-You will need to create a separate Slash Command for each use case, configuring a Slash command should look like this. This is also where you will get you Slack Token that needs to be configured in your Heroku application.
-
-![Configure](8.2 - slashConfig.png)
-
-Now we have created our Slash Commands, lets update our Heroku app with the Tokens that were just generated for each command. From the Settings tab in your [Heroku Dashboard](dashboard.heroku.com), reveal the config vars and edit. Oh, and don't forget to generate and append your security token to the SF_PASSWORD variable!!
-
-![Tokens](8.3 - TokensInHeroku.png)
-
-Lastly, remember we said there was a Connected App setting we needed to come back to? Thats right, our callback URL is not a localhost address anymore but should now point to our Heroku app.
-
-![Callback](8.4 - CallbackScope.png)
-
-Congratulations, you should now be able to pull Salesforce data into your Slack stream.
-
-[![Salesforce in Slack](8.5 - Step2Video.png)](https://youtu.be/xB-1SsUoBHk)
-
-
-## 3 - Its all in the Bot
-
-In the last part of our workshop we are going to create an integration using bots, we are going to monitor Slack channels and respond to Salesforce requests expressed in natural language. 
-
-We are going to create an applciation that opens a Websocket connection to Slack, allowing the bot to listen to the Slack channel as well as any direct messages that users send directly to the bot. We are going to use [Botkit](https://github.com/howdyai/botkit) to abstract some of the low level details of Slack (and [Facebook](https://blog.howdy.ai/botkit-for-facebook-messenger-17627853786b)) bot buildling. 
-
-To finish off today, we are going to :
-* Configure another Salesforce Connected App
-* Create another Heroku App
-* Create a bot user in Slack
-
-### 1 - Create a Salesforce Connected App
-
-Create Connected app.
-
-![Connected App Config](9.1 - ConnectedApp Config.png)
-
-
-### 2 - Create the Slack Bot User
-
-Lets add a bot to our Slack Team. 
-
-![Add the Bot](9.2 - AddTheBot.png)
-
-### 3 - Create the Heroku App
-
-Go ahead and use your Heroku again (or follow this for deploying locally)
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ibigfoot/salesforce-bot-slack)
-
-Setup your config vars, again to remember that your security token should be appended to the password.
-
-![Heroku Config](9.3 - HerokuAppConfig.png)
-
-
-You should now be able to have a conversation with your Salesforce Bot!
-
-[![Salesforce Bot](10 - Step3Video.png)](https://youtu.be/1EPNbHi-3UY)
 
 
