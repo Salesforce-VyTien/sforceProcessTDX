@@ -1,4 +1,4 @@
-# Automating Instructor and Teaching Assistant Management
+# Automate Instructor and Teaching Assistant Management
 
 ## Introduction
 
