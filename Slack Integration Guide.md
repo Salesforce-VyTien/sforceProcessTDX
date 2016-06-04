@@ -1,15 +1,15 @@
-#Salesforce Process Automation Tools
+# Automating Instructor and Teaching Assistant Management
 
 ## Introduction
 
-In this project we will be using three different process automation tools and combining them to provide a solution to managing Instructors and Teaching Assistants for web development classes. 
+In this project we will be combining three tools to provide a solution to managing Instructors and Teaching Assistants for an organization that delivers software development classes in various Chapters (cities). 
 
-TBD: screen shot of data model
-
-There are three process automation tools that you will use:
-* Process Builder - orchestrate all automation actions; recruit Teaching Assistants via Chatter, and prep for emailing the Instructor by creating a Campaign Member child record 
+You will use:
+* Process Builder - recruit Teaching Assistants via Chatter, and prep for emailing the Instructor by creating a Campaign Member child record 
 * Flow - prep for emailing potential Teaching Assistants by creating Campaign Member child records
-* Apex - thank each Instructor and Teaching Assistant by posting a Thanks badge
+* Invokable Methods in Apex - thank the Instructor by posting a Thanks badge
+
+Process Builder will be used to combine these tools into a single process that can be easily shared for business and IT collaboration.
 
 Let's get started! 
 
@@ -17,6 +17,8 @@ this is how to make a URL in markup [heavy lifting](http://coenraets.org/blog/20
 
 ## 0 - Defining the Data Model
 There is some data model pre-work before you get to the process automation tools. Class sessions are modeled as Campaigns, and the Chapter and Instructor are added to the Campaign. Instructors are modeled as Salesforce licensed Users (because they need access to Work.com) AND Contacts so that they can be listed as Campaign Members. Teaching Assistants are modeled as Chatter Free licenced Users so that they have access to the Chatter group AND Contacts so that they can be listed as Campaign Members. Yes, this is fraught with peril, but it's just a sample app...roll with it.
+
+![Data Model](1.1 - new process window.png)
 
 ### Pre-Work Steps
 1. Customize Campaign: add field for Chapter (Lookup to Account); add field for Instructor (Lookup to User); edit Campaign Type picklist to include Dev Class
