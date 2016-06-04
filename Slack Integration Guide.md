@@ -130,7 +130,24 @@ Double-click SObject Collection Variable and fill in the information for the Cam
 
 ![Campaign Member Collection Variable](2.8 - campaign member collection variable.png)
 
+### Define Fast Lookup
+With the Account ID variable passed in from the Process Builder process, we can select all of Contacts for that Account with a Fast Lookup on the Contact object. In real life, there might be other criteria in this query (like a "volunteered to be a teaching assistant" checkbox), but that's for another day.
 
+Select the Palette tab. Drag the Fast Lookup element onto the canvas. In General Settings, set the Name to Find Chapter TAs. The Unique Name will default to Find_Chapter_TAs. Then fill in the Filters and Assignments information.
+
+![Find Chapter TAs](2.9 - find chapter tas.png)
+
+Don't forget to set the Fast Lookup as the Start element 
+
+TBD: screen shot
+
+Save the Flow.
+
+TBD: screen shot
+
+Don't forget to Activate. That's done on the Flow list. 
+
+TBD: screen shot
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
