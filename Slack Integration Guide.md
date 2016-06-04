@@ -8,7 +8,7 @@ TBD: screen shot of data model
 
 There are three process automation tools that you will use:
 * Process Builder - orchestrate all automation actions; recruit Teaching Assistants via Chatter, and prep for emailing the Instructor by creating a Campaign Member child record 
-* Flow - append Instructor Bio from Contact record to Class Session Description
+* Flow - prep for emailing potential Teaching Assistants by creating Campaign Member child records
 * Apex - thank each Instructor and Teaching Assistant by posting a Thanks badge
 
 Let's get started! 
@@ -16,17 +16,16 @@ Let's get started!
 this is how to make a URL in markup [heavy lifting](http://coenraets.org/blog/2016/04/salesforce-slack-bot/) 
 
 ## 0 - Defining the Data Model
-There is some data model pre-work before you get to the process automation tools. Class details are stored in a custom object. Class sessions are modeled as Campaigns, and the Instructor is added to the Campaign. Instructors and Teaching Assistants are modeled as External Chatter users AND Contacts and also need to be listed as Campaign Members.
+There is some data model pre-work before you get to the process automation tools. Class sessions are modeled as Campaigns, and the Chapter and Instructor are added to the Campaign. Instructors are modeled as Salesforce licensed Users (because they need access to Work.com) AND Contacts so that they can be listed as Campaign Members. Teaching Assistants are modeled as Chatter Free licenced Users so that they have access to the Chatter group AND Contacts so that they can be listed as Campaign Members. Yes, this is fraught with peril, but it's just a sample app...roll with it.
 
 ### Pre-Work Steps
-1. Create a custom object named Class with one Long Text field named Description.
-2. Customize Campaign: add field for Class (Lookup to Class); add field for Instructor (Lookup to User); edit Campaign Type picklist to include Dev Class
-3. Create Women in Tech Chatter Group: set Group Access to Public
-4. Create sample data: at least one Instructor, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
-5. Create sample data: at least one Teaching Assistant, create as Contact AND create as User with Chatter Free license and Chatter Free User profile
+1. Customize Campaign: add field for Chapter (Lookup to Account); add field for Instructor (Lookup to User); edit Campaign Type picklist to include Dev Class
+2. Create Women in Tech Chatter Group: set Group Access to Public
+3. Create sample data: at least one Account record for a Chapter (e.g., NYC Chapter)
+4. Create sample data: one Instructor, create as User with Chatter Free license and Chatter Free User profile AND as Contact
+5. Create sample data: at least two Teaching Assistants, create as Users with Chatter Free license and Chatter Free User profile AND Contact with a lookup to the Chapter Account you created
 6. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
 7. Enable Thanks on Global Publisher: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
-8. Create at least one Class record
 
 ## 1 - Automating Processes for New Class Sessions, Part 1
 As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign): the Class, an Instructor, and the Date. Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
