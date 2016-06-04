@@ -167,14 +167,15 @@ You should now have a Flow that looks like this...
 ![Final Flow](2.13 - final flow.png)
 
 ### Save and Activate
+Finally, you need to save the Flow and then Activate it before you can test.
 
-Save the Flow.
+Click Save and fill in the Flow Properties. Make sure you set the Type to Autolaunched Flow. This makes it available in the Process Builder.
 
-TBD: screen shot
+![Save Flow](2.14 - save flow.png)
 
-Don't forget to Activate. That's done on the Flow list. 
+Click Close. Now you should be on the Flow Detail page. Your Flow is listed in the Flow Versions list. Click the Activate link.
 
-TBD: screen shot
+![Activate Flow](2.15 - activate flow.png)
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
