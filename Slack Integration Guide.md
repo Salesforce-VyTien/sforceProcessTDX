@@ -94,24 +94,25 @@ The next automation requires querying Contacts to create one or more Campaign Me
 5. Add a Fast Create to create Campaign Members from the collection
 6. Activate and test the process
 
-### Create Flow and Define Input Variables
-Process Builder will pass in variables to the Flow for Campaign ID (aka Class Session) and Account ID (aka Chapter). 
-
 Lets fire up Flow to start building.
 
 ![Create Flow](2.1 - flow in setup.png)
 
+### Create Flow and Define Input Variables
+Process Builder will pass in variables to the Flow for Campaign ID (aka Class Session) and Account ID (aka Chapter). 
+
 Click New Flow and select the Resources tab.
 
 ![New Resource](2.2 - resources tab.png)
-
-###Variables
 
 In the Resources tab, double-click Variable and fill in the information for the Campaign ID variable. Do it again for the Account ID variable. Remember to set the Input/Output Type to Input Only. This will expose the variable in the Process Builder.
 
 ![Campaign Variable](2.3 - campaign variable.png)
 
 ![Account Variable](2.4 - account variable.png)
+
+### Define Other Variables
+Within the Flow you need variables to pass data between the steps. We use SObject Variables and SObject Collection Variables because they automatically know the fields in the object you select and will change if you add or remove fields.
 
 Double-click SObject Collection Variable and fill in the information for the Contact collection variable. This is where you will store the Teaching Assistant records retrieved from the Contact object. Input/Output type should be Private.
 
