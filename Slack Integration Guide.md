@@ -98,17 +98,30 @@ The next automation requires querying Contacts to create one or more Campaign Me
 Process Builder will pass in variables to the Flow for Campaign ID (aka Class Session) and Account ID (aka Chapter). 
 
 Lets fire up Flow to start building.
+
 ![Create Flow](2.1 - flow in setup.png)
 
 Click New Flow and select the Resources tab.
 
 ![New Resource](2.2 - resources tab.png)
 
-Double-click Variable and fill in the information for the Campaign ID variable. Do it again for the Account ID variable. Remember to set the Input/Output Type to Input Only. This will expose the variable in the Process Builder.
+###Variables
+
+In the Resources tab, double-click Variable and fill in the information for the Campaign ID variable. Do it again for the Account ID variable. Remember to set the Input/Output Type to Input Only. This will expose the variable in the Process Builder.
 
 ![Campaign Variable](2.3 - campaign variable.png)
 
 ![Account Variable](2.4 - account variable.png)
+
+Double-click SObject Collection Variable and fill in the information for the Contact collection variable. Input/Output type should be Private.
+
+![Contact Collection Variable](2.5 - contact collection variable.png)
+
+Double-click SObject Variable and fill in the information for a Contact single record variable. This is used as temporary storage when looping through the Contact collection variable. Input/Output type should be Private.
+
+![Contact Variable](2.6 - contact variable.png)
+
+
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
