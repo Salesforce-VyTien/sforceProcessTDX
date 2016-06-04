@@ -27,8 +27,8 @@ There is some data model pre-work before you get to the process automation tools
 6. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group
 7. Enable Thanks on Global Publisher: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
 
-## 1 - Automating Processes for New Class Sessions, Part 1
-As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign): the Class, an Instructor, and the Date. Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor and the Teaching Assistants need to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
+## 1 - New Class Sessions: Automating with Process Builder
+As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign). Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor needs to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
 
 ### What you will do
 1. Create a process in Process Builder for the Campaign object
@@ -80,10 +80,10 @@ Your functioning process should now be ready to test. Pretend you are the Chapte
 2. Refresh the Campaign page. Is there a new Campaign Member record?
 3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
 
-## 2 - Automating Processes for New Class Sessions, Part 2
+## 2 - New Class Sessions: Automating with Flow
 The next automation requires querying Contacts to create one or more Campaign Members. This is something we cannot do with just the Process Builder capabilities. This is where Flow comes in.
 
-## 3 - Automating Class Session Completion
+## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
 
 ###Apex Class
@@ -172,6 +172,10 @@ Select the Campaign object and specify to start the process when a record is cre
 ![Process Criteria](3.2 - complete class session criteria.png)
 
 Now we can add an action that calls our fresly minted Apex class, ready to accept the four parameters that we annotated with the @InnvocableVariable annotation.
+* Badge Name | String | Thanks
+* Giver ID | Reference | [Campaign.OwnerId] 
+* Receiver ID | Reference | [Campaign.Instructor__c] 
+* Thanks Message | String | You are awesome!
 
 ![Set the Action](3.3 - class apex method.png)
 
