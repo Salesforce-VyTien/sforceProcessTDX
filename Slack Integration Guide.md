@@ -307,7 +307,7 @@ Your functioning process should now be ready to test. Pretend you are the Chapte
  
 ![Thanks Badge](3.4 - thanks badge.png)
 
-What else will you need to do before you can deploy this process in the production?
+What else will you need to do before you can deploy this process in a production org?
 
 
 
