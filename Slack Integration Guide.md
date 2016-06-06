@@ -301,7 +301,7 @@ Finally, Activate the process.
 ### Test
 Your functioning process should now be ready to test. Pretend you are the Chapter Leader and follow these steps:
 1. Edit an existing Campaign of Type = Dev Class. Set the Status to Completed. Save.
-2. Go to the Chatter tab. Is there a new post, thanking the Instructor? Does it have the Thanks badge?
+2. Go to your Chatter Feed. Is there a new post, thanking the Instructor? Does it have the Thanks badge?
  
 ![Thanks Badge](3.4 - thanks badge.png)
 
