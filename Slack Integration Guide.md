@@ -130,7 +130,7 @@ Double-click SObject Collection Variable (yup, this one is a collection - you ne
 
 ![Campaign Member Collection Variable](2.8 - campaign member collection variable.png)
 
-OK, now you are all ready to add Flow elements that will use these varaibles. First, select the Explorer tab and check your work. You should have six variables. You can check their properties by single-clicking on them, and edit by double-clicking.
+OK, now you are all ready to add Flow elements that will use these varaibles. But first, select the Explorer tab and check your work. You should have six variables, two of each type. You can check their properties by single-clicking on them, and edit by double-clicking.
 
 ![Variables in Explorer](2.9 - variables in explorer.png)
 
