@@ -25,8 +25,8 @@ No sense waiting, let's get started...
 2. Create sample data: at least one Account record for a Chapter (e.g., NYC Chapter).
 3. Create sample data: one Instructor, create as User with Salesforce license AND as Contact with a lookup to the Chapter (Account) you created.
 4. Create sample data: at least two Teaching Assistants, create as Users with Chatter Free license and Chatter Free User profile AND as Contact with a lookup to the Chapter (Account) you created.
-5. Create Women in Tech Chatter Group: set Group Access to Public.
-6. Add Instructors and Teaching Assistants to the Women in Tech Chatter Group.
+5. Create Women in Technology Chatter Group: set Group Access to Public.
+6. Add Instructors and Teaching Assistants to the Women in Technology Chatter Group.
 7. Enable Thanks on Global Publisher from Classic Setup UI: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
 
 ## 1 - New Class Sessions: Automating with Process Builder
