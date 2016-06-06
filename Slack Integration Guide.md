@@ -62,7 +62,7 @@ I'm looking for Teaching Assistant volunteers for a {![Campaign].Name} class tau
 Please email me at {![Campaign].Owner.Email} if you are interested.
 ```
 
-![Set the Action](1.3 - chatter post action.png)
+![Set the Action](1.3 - chatter post action2.png)
 
 Now add an action that creates a Campaign Member for the Instructor, mapping values from the Campaign as follows:
 * Campaign ID | Reference | [Campaign.Id]
