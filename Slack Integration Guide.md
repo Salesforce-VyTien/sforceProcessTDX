@@ -9,7 +9,7 @@ You will use:
 * Flow - prep for emailing potential Teaching Assistants by creating Campaign Member child records
 * Invokable Methods in Apex - thank the Instructor by posting a Thanks badge
 
-You will combine these actions in Process Builder, enabling you to easily collaborate with the Chapter Leaders.
+You will combine these actions in Process Builder, enabling you to easily maintain the processes and collaborate with other members of your team with the process diagram.
 
 Let's get started! 
 
