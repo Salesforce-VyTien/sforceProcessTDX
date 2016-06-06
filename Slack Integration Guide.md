@@ -201,10 +201,10 @@ Your functioning process should now be ready to test. Once again, enter data as 
 2. Look at the Campaign Member list. Are there new Campaign Member records now? There should be because that's what your Flow should be doing (assuming you created some Contacts for the same Account that you set the Chapter field to on the Campaign).
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
-The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
+The final automation requires giving a Thanks badge to the Instructor. This is something you cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. You are going to write a small piece of Apex code that will be fired from a process you will define in the Process Builder.
 
 ###Apex Class
-Now we can create the Apex code that is capable of posting a Thanks badge to our awesome Instructor's profile page. The methods and classes here will allow Badge Name, Giver ID, Receiver ID and Thanks Message to be passed in from the process we define in Process Builder. 
+Now you can create the Apex code that is capable of posting a Thanks badge to your awesome Instructor's profile page. The methods and classes here will allow Badge Name, Giver ID, Receiver ID and Thanks Message to be passed in from the process you define in Process Builder. 
 
 ```
 global without sharing class GiveWorkThanksAction {
@@ -276,7 +276,7 @@ global without sharing class GiveWorkThanksAction {
 Notice the [@InvocableVariable](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableVariable.htm) and [@InvocableMethod](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_annotation_InvocableMethod.htm) annotations on this class that allow these methods to be exposed to the configuration tools in the Salesforce system, as well as to other authenticated clients via the REST API. 
 
 ### Build the Process
-Now we can define the business process that will cause the Thanks automation to fire and post a badge to the Instructor. Here we get to see one of the really powerful features of Salesforce when you are writing code, the ability to bridge from clicks to code seamlessly! 
+Now you can define the business process that will cause the Thanks automation to fire and post a badge to the Instructor. Here we get to see one of the really powerful features of Salesforce when you are writing code, the ability to bridge from clicks to code seamlessly! 
 
 Fire up Process Builder and create this rule.
 
@@ -284,11 +284,11 @@ Click New and populate the details of your new Process.
 
 ![New Process](3.1 - completed class sessions.png)
 
-Select the Campaign object and specify to start the process when a record is created or edited. Then add the selection criteria. i.e. When does the action need to fire? In our case, we want to thank our Instructors only when a class is complete and also only for Dev Class campaigns (not ALL campaigns!). 
+Select the Campaign object and specify to start the process when a record is created or edited. Then add the selection criteria. i.e. When does the action need to fire? In our case, you want to thank your Instructors only when a class is complete and also only for Dev Class campaigns (not ALL campaigns!). 
 
 ![Process Criteria](3.2 - complete class session criteria.png)
 
-Now we can add an action that calls our freshly minted Apex class, ready to accept the four parameters that we annotated with the @InnvocableVariable annotation.
+Now you can add an action that calls your freshly minted Apex class, ready to accept the four parameters that you annotated with the @InnvocableVariable annotation.
 * Badge Name | String | Thanks
 * Giver ID | Reference | [Campaign.OwnerId] 
 * Receiver ID | Reference | [Campaign.Instructor__c] 
@@ -299,7 +299,7 @@ Now we can add an action that calls our freshly minted Apex class, ready to acce
 Finally, Activate the process.
 
 ### Test
-Your functioning process should now be ready to test. Pretend you are the Chapter Leader and follow these steps:
+Your functioning process should now be ready to test. Enter data as you would as the Chapter Leader, following these steps:
 1. Edit an existing Campaign of Type = Dev Class. Set the Status to Completed. Save.
 2. Go to your Chatter Feed. Is there a new post, thanking the Instructor? Does it have the Thanks badge?
  
