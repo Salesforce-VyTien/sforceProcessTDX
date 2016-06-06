@@ -21,7 +21,7 @@ There is some data model pre-work before you get to automating these processes. 
 ### Pre-Work Steps
 No sense waiting, let's get started...
 
-1. Customize Campaign: add field for Chapter (Lookup to Account); add field for Instructor (Lookup to User); edit Campaign Type picklist to include 'Dev Class' value.
+1. Customize Campaign: add field named Chapter (Lookup to Account); add field named Instructor (Lookup to User); edit Campaign Type picklist to include 'Dev Class' value.
 2. Create sample data: at least one Account record for a Chapter (e.g., NYC Chapter).
 3. Create sample data: one Instructor, create as User with Salesforce license AND as Contact with a lookup to the Chapter (Account) you created.
 4. Create sample data: at least two Teaching Assistants, create as Users with Chatter Free license and Chatter Free User profile AND as Contact with a lookup to the Chapter (Account) you created.
