@@ -99,7 +99,7 @@ Lets fire up Flow to start building.
 ![Create Flow](2.1 - flow in setup.png)
 
 ### Create Flow and Define Input Variables
-Process Builder will pass in variables to the Flow for Campaign ID (aka Class Session) and Account ID (aka Chapter). 
+Process Builder will pass in variables to the Flow for Campaign ID (aka Class Session) and Account ID (aka Chapter). You create variables in the Resources tab and you can view and edit them in the Explorer tab.
 
 Click New Flow and select the Resources tab.
 
