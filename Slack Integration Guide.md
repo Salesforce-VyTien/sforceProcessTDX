@@ -148,7 +148,7 @@ From the Pallete tab, drag the Loop element onto the canvas. Fill in the informa
 
 ![Loop Contacts](2.10 - loop contacts.png)
 
-From the Pallete tab, drag the Assignment element onto the canvas. Fill in the information. This is where you use the Campaign ID we've passed from the Process Builder process.
+From the Pallete tab, drag the Assignment element onto the canvas. This is where you populate the CampaignMemberRecord variable using the Contact ID value from the ChapterTAContacts collection and the Campaign ID you passed from the Process Builder process, then add that to the TACampaignMembers collection. Fill in the information.
 
 ![Assignment](2.11 - assign contacts to campaign members.png)
 
