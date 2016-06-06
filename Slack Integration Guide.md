@@ -164,7 +164,7 @@ Select the Palette tab. Drag the Fast Create element onto the canvas. Fill in th
 ![Fast Create Campaign Members](2.12 - fast create campaign members.png)
 
 ### Tell the Flow Engine What to Do
-Right now your four Flow elements are disconnected and the Flow engine doesn't know where to start. To connect the elements, click the diamond at the bottom of an element and drag to another element to draw a connector line. 
+Right now your four Flow elements are disconnected and the Flow engine doesn't know where to start. To connect any two elements, click the diamond at the bottom of an element and drag to another element to draw a connector line. 
 
 Connect these elements, in this order:
 1. Fast Lookup and Loop
@@ -315,5 +315,7 @@ Your functioning process should now be ready to test. Enter data as you would as
 
 What else will you need to do before you can deploy this process in a production org?
 
+### Congratuations!
+With the combination of Process Builder, Flow, and Invokable Methods in Apex, you have made all of the Chapter Leaders more productive! For more hands-on learning about these tools, try the [Process Automation](https://developer.salesforce.com/trailhead/module/business_process_automation) modules in [Trailhead](https://developer.salesforce.com/trailhead/).
 
 
