@@ -65,10 +65,12 @@ Please email me at {![Campaign].Owner.Email} if you are interested.
 
 Now add an action of type 'Quick Action'. This lets you call any Global or Object-Specific Quick Action and map in the values it needs to do it's job. 
 
-In the Select and Define Action settings, select Action Type = Quick Actions, and then provide an Action Name. Now you need to find the action you are looking for...which is the Object-Specific Quick Action to add New Members to a group. Filter Search By 'Object', select the Object labeled 'Group' (API Name CollaborationGroup), and the Action 'NewGroupMember'. Now you should see the available values you need to provide. You need to provide the ID of the Chatter Group, and in this case you will need to hardcode it. Navigate to the Women in Technology Chatter Group and copy the ID from the URL.
+In the Select and Define Action settings, select Action Type = Quick Actions, and then provide an Action Name. Next, you need to find the action you are looking for...which is the Object-Specific Quick Action to add New Members to a group. Filter Search By 'Object', select the Object labeled 'Group' (API Name CollaborationGroup), and the Action 'NewGroupMember'. 
+
+Now you should see the available values you need to provide. For the 'Related Record ID' field, the Quick Action wants the ID of the Chatter Group, and in this case you will need to hardcode it. Navigate to the Women in Technology Chatter Group and copy the ID from the URL.
 
 Set the Quick Action Field Values as follows:
-* Related Record ID | ID | <hardcode the ID of the Women in Technology chatter group>
+* Related Record ID | ID | (ID You Copied From The Chatter Group URL, not the one in the screen shot!)
 * Member ID | Reference | [Campaign.Instructor__c] 
 
 ![Set the Action](1.4 - create record action2.png)
