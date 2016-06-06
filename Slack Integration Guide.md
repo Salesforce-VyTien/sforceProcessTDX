@@ -9,7 +9,7 @@ You will use:
 * Flow - prep for emailing potential Teaching Assistants by creating Campaign Member child records
 * Invokable Methods in Apex - thank the Instructor by posting a Thanks badge
 
-Process Builder will be used to combine these tools into a single process that can be easily shared for business and IT collaboration.
+Process Builder will be used to combine these actions in processes that can easily be shared for business and IT collaboration.
 
 Let's get started! 
 
