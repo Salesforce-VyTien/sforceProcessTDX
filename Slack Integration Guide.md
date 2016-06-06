@@ -78,7 +78,7 @@ Remove the Lead ID row, then Save.
 Finally, Activate the process.
 
 ### Test
-Your functioning process should now be ready to test. Pretend you are the Chapter Leader and follow these steps:
+Your functioning process should now be ready to test. Enter data as you would as the Chapter Leader, following these steps:
 
 1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Instructor = your sample instructor; Chapter = your sample account. Save.
 2. Look in the Campaign Member related list for your new Campaign. Is there a new Campaign Member record?
@@ -195,11 +195,10 @@ Now you can add an action that calls your brand new Flow, and provide values for
 Finally, Activate the process. Activating this cloned Flow will deactivate the Flow you created and activated earlier. Only one version of a Flow can be activate at a time.
 
 ### Test
-Your functioning process should now be ready to test. Once again, pretend you are the Chapter Leader and follow the same steps as above:
+Your functioning process should now be ready to test. Once again, enter data as you would as the Chapter Leader, but this time, keep an eye on the Campaign Member related list.
 
 1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Instructor = your sample instructor; Chapter = your sample account. Save.
-2. Look in the Campaign Member related list for your new Campaign. Is there *more than one* new Campaign Member record now? There should be because that's what your Flow should be doing (assuming you created some Contacts for the same Account that you set the Chapter field to on the Campaign).
-3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
+2. Look at the Campaign Member list. Are there new Campaign Member records now? There should be because that's what your Flow should be doing (assuming you created some Contacts for the same Account that you set the Chapter field to on the Campaign).
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
