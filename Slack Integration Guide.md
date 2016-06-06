@@ -2,7 +2,7 @@
 
 ## Introduction
 
-In this project we will be combining three tools to provide a solution to managing Instructors and Teaching Assistants for an organization that delivers software development classes in various Chapters. 
+In this project we will combine three tools to provide a solution to managing Instructors and Teaching Assistants for an organization that delivers software development classes in various Chapters. 
 
 You will use:
 * Process Builder - recruit Teaching Assistants via Chatter, and prep for emailing the Instructor by creating a Campaign Member child record 
