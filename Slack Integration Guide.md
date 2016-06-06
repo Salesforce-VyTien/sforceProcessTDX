@@ -167,6 +167,7 @@ Select the Palette tab. Drag the Fast Create element onto the canvas. Fill in th
 Right now your four Flow elements are disconnected and the Flow engine doesn't know where to start. To connect any two elements, click the diamond at the bottom of an element and drag to another element to draw a connector line. 
 
 Connect these elements, in this order:
+
 1. Fast Lookup and Loop
 2. Loop and Assignment
 3. Loop and Fast Create 
