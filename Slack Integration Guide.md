@@ -84,22 +84,22 @@ Your functioning process should now be ready to test. Enter data as you would as
 2. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct in the post? Did the Instructor get added as a group member? If yes, you just made all of the Chapter Leaders more productive!
 
 ## 2 - New Class Sessions: Automating with Flow
-The next automation requires querying Contacts to create one or more Campaign Members. This is something we cannot do with just the Process Builder capabilities. This is where Flow comes in.
+The next automation requires querying Contacts to create one or more Campaign Members. This is something you cannot do with just the Process Builder capabilities. This is where Flow comes in.
 
 ### What you will do
 1. Create a new Flow
 2. Add a Fast Lookup to find Contacts for the Chapter
 3. Add a Loop to iterate through the collection of Contacts
-4. Add an Assignment to map the Contact ID and Campaign ID into a Campaign Member Collection
+4. Add an Assignment to map the Contact ID and Campaign ID into a Campaign Member collection
 5. Add a Fast Create to create Campaign Members from the collection
 6. Activate and test the process
 
-Lets fire up Flow to start building.
+Fire up Flow to start building.
 
 ![Create Flow](2.1 - flow in setup.png)
 
 ### Create Flow and Define Input Variables
-Process Builder will pass in variables to the Flow for Campaign ID (aka Class Session) and Account ID (aka Chapter). You create variables in the Resources tab and you can view and edit them in the Explorer tab.
+Process Builder will pass in variables to the Flow for Campaign ID (aka Class Session) and Account ID (aka Chapter). You will create these variables, and variables needed to pass data between elements in your Flow, in the Resources tab. After you create them, you can view and edit them in the Explorer tab.
 
 Click New Flow and select the Resources tab.
 
@@ -112,7 +112,7 @@ In the Resources tab, double-click Variable and fill in the information for the 
 ![Account Variable](2.4 - account variable.png)
 
 ### Define Other Variables
-Within the Flow you need variables to pass data between the steps. We use SObject Variables and SObject Collection Variables because they automatically know the fields in the object you select and will change if you add or remove fields.
+Within the Flow you need variables to pass data between the elements. You'll use SObject Variables and SObject Collection Variables because they automatically know the fields in the object you select and will change if you add or remove fields.
 
 Double-click SObject Collection Variable and fill in the information for the Contact collection variable. This is where you will store the Teaching Assistant records retrieved from the Contact object. Input/Output type should be Private.
 
@@ -131,32 +131,32 @@ Double-click SObject Collection Variable and fill in the information for the Cam
 ![Campaign Member Collection Variable](2.8 - campaign member collection variable.png)
 
 ### Define Fast Lookup
-With the Account ID variable passed in from the Process Builder process, we can select all of Contacts for that Account with a Fast Lookup on the Contact object. In real life, there might be other criteria in this query (like a "volunteered to be a teaching assistant" checkbox), but that's for another day.
+With the Account ID variable passed in from the Process Builder process, you can select all of Contacts for that Account with a Fast Lookup on the Contact object. In real life, there might be other criteria in this query (like a "volunteered to be a teaching assistant" checkbox), but that's for another day.
 
-Select the Palette tab. Drag the Fast Lookup element onto the canvas. In General Settings, set the Name to Find Chapter TAs. The Unique Name will default to Find_Chapter_TAs. Then fill in the Filters and Assignments information.
+Select the Palette tab. Drag the Fast Lookup element onto the canvas. In General Settings, set the Name to 'Find Chapter TAs'. The Unique Name will default to 'Find_Chapter_TAs'. Then fill in the Filters and Assignments information.
 
 ![Find Chapter TAs](2.9 - find chapter tas2.png)
 
 ### Define Loop and Assignment
-Now we need to iterate through the ChapterTAContacts collection to map the values to the TACampaignMembers collection.
+Now you need to iterate through the ChapterTAContacts collection to map the values to the TACampaignMembers collection.
 
 From the Pallete tab, drag the Loop element onto the canvas. Fill in the information. 
 
 ![Loop Contacts](2.10 - loop contacts.png)
 
-From the Pallete tab, drag the Assignment element onto the canvas. Fill in the information. This is where we use the Campaign ID we've passed from the Process Builder process.
+From the Pallete tab, drag the Assignment element onto the canvas. Fill in the information. This is where you use the Campaign ID we've passed from the Process Builder process.
 
 ![Assignment](2.11 - assign contacts to campaign members.png)
 
 ### Define Fast Create
-Now we have what we need to create the new Campaign Member records for the potential Teaching Assistants! We can do that by provide the Fast Create element with the SObject Collection variable we've populated. Boom, that's it!
+Now you have what you need to create the new Campaign Member records for the potential Teaching Assistants! You do that by provide the Fast Create element with the SObject Collection variable you've populated. Boom, that's it!
 
 Select the Palette tab. Drag the Fast Create element onto the canvas. Fill in the information.
 
 ![Fast Create Campaign Members](2.12 - fast create campaign members.png)
 
 ### Tell the Flow Engine What to Do
-Right now your four Flow elements are disconnected and the Flow engine doesn't know where to start. To connect the elements, click the diamond at the bottom of one element and drag to another element to draw a connector line. 
+Right now your four Flow elements are disconnected and the Flow engine doesn't know where to start. To connect the elements, click the diamond at the bottom of an element and drag to another element to draw a connector line. 
 
 Connect these elements, in this order:
 1. Fast Lookup and Loop
@@ -172,7 +172,7 @@ You should now have a Flow that looks like this...
 ### Save and Activate
 Finally, you need to save the Flow and then Activate it before you can test.
 
-Click Save and fill in the Flow Properties. Make sure you set the Type to Autolaunched Flow. This makes it available in the Process Builder.
+Click Save and fill in the Flow Properties. Make sure you set the Type to 'Autolaunched Flow'. This makes it available in the Process Builder.
 
 ![Save Flow](2.14 - save flow.png)
 
@@ -181,9 +181,9 @@ Click Close. Now you should be on the Flow Detail page. Your Flow is listed in t
 ![Activate Flow](2.15 - activate flow.png)
 
 ### Add the Flow to your Process
-We want the potential Teaching Assistants added as Campaign Members for all new Campaigns for Dev Classes, so we should add this to the process we built in Step 1 because that is firing for all new Campaigns of Type = Dev Class. Calling a Flow from a process in Process Builder gives us the extra power we need for this automation, while keeping it in one place to make it easy to maintain and to explain to the business.
+We want the potential Teaching Assistants added as Campaign Members for all new Campaigns for Dev Classes, so we should add this to the process we built in Step 1 because that is firing for all new Campaigns of Type = Dev Class. Calling a Flow from a process in Process Builder gives us the extra power we need for this automation, while keeping it in one place to make it easy to maintain and to share with our team.
 
-Fire up Process Builder and edit your existing process: New Class Sessions. Oh no, you can't! Flows cannot be modified once they have been activated. To modify a Flow, Clone it first. I suggest saving the clone as a version of the current process, which is the default setting.
+Fire up Process Builder and edit your existing process: New Class Sessions. Oh no, you can't! Flows cannot be modified once they have been activated. To modify a Flow, Clone it first. Save the clone as a version of the current process (this is the default).
 
 Now you can add an action that calls your brand new Flow, and provide values for the two input variables you defined in the Flow.
 * AccountIDFromPB | Reference | [Campaign.Chapter__c]
@@ -191,13 +191,13 @@ Now you can add an action that calls your brand new Flow, and provide values for
 
 ![Set the Action](2.16 - call flow from pb.png)
 
-Finally, Activate the process. Activating this cloned Flow will deactivate the Flow you created and activated earlier. Only one version of a Flow can be activate at a time.
+Finally, Activate the process. Activating this cloned Flow will deactivate the Flow you created earlier. Only one version of a Flow can be active at a time.
 
 ### Test
 Your functioning process should now be ready to test. Once again, enter data as you would as the Chapter Leader, but this time, keep an eye on the Campaign Member related list.
 
 1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Chapter = your sample account; Instructor = your sample instructor. Save.
-2. Look at the Campaign Member list. Are there new Campaign Member records now? There should be because that's what your Flow should be doing (assuming you created some Contacts for the same Account that you set the Chapter field to on the Campaign).
+2. Look at the Campaign Member list. Are there new Campaign Member records now? There should be, because that's what your Flow should be doing (assuming you created some Contacts for the same Account that you set the Chapter field to on the Campaign).
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something you cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. You are going to write a small piece of Apex code that will be fired from a process you will define in the Process Builder.
