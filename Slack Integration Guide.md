@@ -26,8 +26,8 @@ No sense waiting, let's get started...
 3. Create sample data: one Instructor, create as User with Salesforce license AND as Contact with a lookup to the Chapter (Account) you created.
 4. Create sample data: at least two Teaching Assistants, create as Users with Chatter Free license and Chatter Free User profile AND as Contact with a lookup to the Chapter (Account) you created.
 5. Create Women in Technology Chatter Group: set Group Access to Public.
-6. Add Instructors and Teaching Assistants to the Women in Technology Chatter Group.
-7. Enable Thanks on Global Publisher from Classic Setup UI: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
+6. From Classic UI, add Instructors and Teaching Assistants to the Women in Technology Chatter Group as members.
+7. From Classic Setup UI, enable Thanks on Global Publisher: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
 
 ## 1 - New Class Sessions: Automating with Process Builder
 As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign). Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, the Instructor needs to be Campaign Members so that you can send group emails for the class. Currently, you do that manually - first adding the Instructor at the Campaign level for easy visiblity and then creating a Campaign Member record for the instructor. Let's save you some time and automate that part, too.
