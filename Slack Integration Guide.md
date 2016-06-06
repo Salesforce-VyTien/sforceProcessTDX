@@ -79,6 +79,7 @@ Finally, Activate the process.
 
 ### Test
 Your functioning process should now be ready to test. Pretend you are the Chapter Leader and follow these steps:
+
 1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Instructor = your sample instructor; Chapter = your sample account. Save.
 2. Look in the Campaign Member related list for your new Campaign. Is there a new Campaign Member record?
 3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
