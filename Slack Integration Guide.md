@@ -204,7 +204,7 @@ Your functioning process should now be ready to test. Once again, enter data as 
 The final automation requires giving a Thanks badge to the Instructor. This is something you cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. You are going to write a small piece of Apex code that will be fired from a process you will define in the Process Builder.
 
 ###Apex Class
-Now you can create the Apex code that is capable of posting a Thanks badge to your awesome Instructor's profile page. The methods and classes here will allow Badge Name, Giver ID, Receiver ID and Thanks Message to be passed in from the process you define in Process Builder. 
+Copy the Apex code below to create the Apex Class that is capable of posting a Thanks badge to your awesome Instructor's profile page. The methods in this class will allow Badge Name, Giver ID, Receiver ID, and Thanks Message to be passed in from the process you define in Process Builder. 
 
 ```
 global without sharing class GiveWorkThanksAction {
