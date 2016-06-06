@@ -16,7 +16,7 @@ Let's get started!
 ## 0 - Defining the Data Model
 There is some data model pre-work before you get to automating these processes. Class sessions are modeled as Campaigns, and the Chapter (Account) and Instructor (User) are added to the Campaign. Teaching Assistants are modeled as Contacts.
 
-![Data Model](0.1 - data model.png)
+![Data Model](0.1 - data model2.png)
 
 ### Pre-Work Steps
 No sense waiting, let's get started...
