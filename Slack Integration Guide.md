@@ -118,7 +118,7 @@ Double-click SObject Collection Variable and fill in the information for the Con
 
 ![Contact Collection Variable](2.5 - contact collection variable.png)
 
-Double-click SObject Variable and fill in the information for a Contact single record variable. This is used as temporary storage when looping through the Contact collection variable. Input/Output type should be Private.
+Double-click SObject Variable (not SObject Collection Variable, because for this part we only need to store a single record) and fill in the information for the Contact single record variable. This is used as temporary storage when looping through the Contact collection variable. Input/Output type should be Private.
 
 ![Contact Variable](2.6 - contact variable.png)
 
