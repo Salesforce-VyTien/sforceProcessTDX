@@ -14,12 +14,14 @@ You will combine these actions in Process Builder, enabling you to easily collab
 Let's get started! 
 
 ## 0 - Defining the Data Model
-There is some data model pre-work before you get to the process automation tools. Class sessions are modeled as Campaigns, and the Chapter and Instructor are added to the Campaign. Instructors are modeled as Salesforce licensed Users (because they need access to Work.com) AND Contacts so that they can be listed as Campaign Members. Teaching Assistants are modeled as Chatter Free licenced Users so that they have access to the Chatter group AND Contacts so that they can be listed as Campaign Members. Yes, this is fraught with peril, but it's just a sample app...roll with it.
+There is some data model pre-work before you get to automating these processes. Class sessions are modeled as Campaigns, and the Chapter (Account) and Instructor (User) are added to the Campaign. Instructors are modeled as Salesforce licensed Users (because they need access to Work.com) AND Contacts (so that they can be listed as Campaign Members). Teaching Assistants are modeled as Chatter Free licenced Users (because they need access to the Chatter group) AND Contacts (so that they can be listed as Campaign Members). Yes, this is fraught with peril, but it's just a sample app...roll with it.
 
 ![Data Model](0.1 - data model.png)
 
 ### Pre-Work Steps
-1. Customize Campaign: add field for Chapter (Lookup to Account); add field for Instructor (Lookup to User); edit Campaign Type picklist to include Dev Class
+No sense waiting, let's get started...
+
+1. Customize Campaign: add field for Chapter (Lookup to Account); add field for Instructor (Lookup to User); edit Campaign Type picklist to include 'Dev Class' value
 2. Create Women in Tech Chatter Group: set Group Access to Public
 3. Create sample data: at least one Account record for a Chapter (e.g., NYC Chapter)
 4. Create sample data: one Instructor, create as User with Chatter Free license and Chatter Free User profile AND as Contact
