@@ -288,7 +288,7 @@ Select the Campaign object and specify to start the process when a record is cre
 
 ![Process Criteria](3.2 - complete class session criteria.png)
 
-Now you can add an action that calls your freshly minted Apex class, ready to accept the four parameters that you annotated with the @InnvocableVariable annotation.
+Now you can add an action that calls your freshly minted Apex class, ready to accept the four parameters that you annotated with the @InnvocableVariable annotation. Note you are referencing the Badge by Name, which in this example happens to be 'Thanks', but you can chose another badge if you prefer.
 * Badge Name | String | Thanks
 * Giver ID | Reference | [Campaign.OwnerId] 
 * Receiver ID | Reference | [Campaign.Instructor__c] 
