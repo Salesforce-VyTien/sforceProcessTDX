@@ -316,6 +316,6 @@ Your functioning process should now be ready to test. Enter data as you would as
 What else will you need to do before you can deploy this process in a production org?
 
 ### Congratuations!
-With the combination of Process Builder, Flow, and Invokable Methods in Apex, you have made all of the Chapter Leaders more productive! For more hands-on learning about these tools, try the [Process Automation](https://developer.salesforce.com/trailhead/module/business_process_automation) modules in [Trailhead](https://developer.salesforce.com/trailhead/).
+With the combination of Process Builder, Flow, and Invokable Methods in Apex, you have made Chapter Leaders more productive! For more hands-on learning about these tools, try the [Process Automation](https://developer.salesforce.com/trailhead/module/business_process_automation) module in [Trailhead](https://developer.salesforce.com/trailhead/).
 
 
