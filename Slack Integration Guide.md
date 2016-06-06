@@ -157,7 +157,7 @@ From the Pallete tab, drag the Assignment element onto the canvas. This is where
 ![Assignment](2.11 - assign contacts to campaign members.png)
 
 ### Define Fast Create
-Now you have what you need to create the new Campaign Member records for the potential Teaching Assistants! You do that by provide the Fast Create element with the SObject Collection variable you've populated. Boom, that's it!
+Now you have what you need to create the new Campaign Member records for the potential Teaching Assistants! Just provide the Fast Create element with the SObject Collection variable you've populated. Boom, that's it!
 
 Select the Palette tab. Drag the Fast Create element onto the canvas. Fill in the information.
 
