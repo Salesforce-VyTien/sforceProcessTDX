@@ -198,7 +198,7 @@ Now you can add an action that calls your brand new Flow, and provide values for
 * AccountIDFromPB | Reference | [Campaign.Chapter__c]
 * CampaignIDFromPB | Reference | [Campaign.Id] 
 
-![Set the Action](2.16 - call flow from pb.png)
+![Set the Action](2.16 - call flow from pb2.png)
 
 Finally, Activate the process. Activating this cloned Flow will deactivate the Flow you created earlier. Only one version of a Flow can be active at a time.
 
