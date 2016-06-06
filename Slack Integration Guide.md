@@ -130,6 +130,10 @@ Double-click SObject Collection Variable (yup, this one is a collection - you ne
 
 ![Campaign Member Collection Variable](2.8 - campaign member collection variable.png)
 
+OK, now you are all ready to add Flow elements that will use these varaibles. First, select the Explorer tab and check your work. You should have six variables. You can check their properties by single-clicking on them, and edit by double-clicking.
+
+![Variables in Explorer](2.9 - variables in explorer.png)
+
 ### Define Fast Lookup
 With the Account ID variable passed in from the Process Builder process, you can select all of Contacts for that Account with a Fast Lookup on the Contact object. In real life, there might be other criteria in this query (like a "volunteered to be a teaching assistant" checkbox), but that's for another day.
 
