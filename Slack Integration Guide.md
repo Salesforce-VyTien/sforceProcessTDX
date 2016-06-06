@@ -194,14 +194,8 @@ Finally, Activate the process. Activating this cloned Flow will deactivate the F
 ### Test
 Your functioning process should now be ready to test. Once again, pretend you are the Chapter Leader and follow the same steps as above:
 1. Enter a new Campaign record, setting the Campaign Type = Dev Class; Start Date = any date; Instructor = your sample instructor; Chapter = your sample account. Save.
-2. Look in the Campaign Member related list for your new Campaign. Is there more than one new Campaign Member record? There should be (assuming you created some Contacts for the same Account that you set the Chapter field to).
+2. Look in the Campaign Member related list for your new Campaign. Is there *more than one* new Campaign Member record now? There should be because that's what your Flow should be doing (assuming you created some Contacts for the same Account that you set the Chapter field to on the Campaign).
 3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
-
- 
-![Thanks Badge](3.4 - thanks badge.png)
-
-What else will you need to do before you can deploy this process in the production?
-
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
 The final automation requires giving a Thanks badge to the Instructor. This is something we cannot do with just the Process Builder or Flow capabilities. This is where Apex invokable methods come in. We are going to write a small piece of Apex code that will be fired from a process we define in the Process Builder.
