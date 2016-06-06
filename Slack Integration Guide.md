@@ -126,7 +126,7 @@ Double-click SObject Variable and fill in the information for a Campaign single 
 
 ![Campaign Member Variable](2.7 - campaign member variable.png)
 
-Double-click SObject Collection Variable and fill in the information for the Campaign Member collection variable. This is used to create new Campaign Member records. Input/Output type should be Private.
+Double-click SObject Collection Variable (yup, this on is a collection, because it will hold records for of the Teaching Assistants you found in the Contact looup) and fill in the information for the Campaign Member collection variable. This is used to create new Campaign Member records. Input/Output type should be Private.
 
 ![Campaign Member Collection Variable](2.8 - campaign member collection variable.png)
 
