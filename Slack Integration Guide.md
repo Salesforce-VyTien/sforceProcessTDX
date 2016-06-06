@@ -80,7 +80,7 @@ Finally, Activate the process.
 ### Test
 Your functioning process should now be ready to test. Enter data as you would as the Chapter Leader, following these steps:
 
-1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Instructor = your sample instructor; Chapter = your sample account. Save.
+1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Chapter = your sample account; Instructor = your sample instructor. Save.
 2. Look in the Campaign Member related list for your new Campaign. Is there a new Campaign Member record?
 3. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct?
 
@@ -197,7 +197,7 @@ Finally, Activate the process. Activating this cloned Flow will deactivate the F
 ### Test
 Your functioning process should now be ready to test. Once again, enter data as you would as the Chapter Leader, but this time, keep an eye on the Campaign Member related list.
 
-1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Instructor = your sample instructor; Chapter = your sample account. Save.
+1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Chapter = your sample account; Instructor = your sample instructor. Save.
 2. Look at the Campaign Member list. Are there new Campaign Member records now? There should be because that's what your Flow should be doing (assuming you created some Contacts for the same Account that you set the Chapter field to on the Campaign).
 
 ## 3 - Class Session Completion: Automating with Apex Invokable Methods
