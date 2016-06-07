@@ -60,7 +60,7 @@ I'm looking for Teaching Assistant volunteers for a {![Campaign].Name} class tau
 Please email me at {![Campaign].Owner.Email} if you are interested.
 ```
 
-![Set the Action](1.3 - chatter post action2.png)
+![Set the Action](1.3 - chatter post action3.png)
 
 That's it! Now, activate the process.
 
