@@ -306,7 +306,7 @@ What else will you need to do before you can deploy this process in a production
 ### Congratuations!
 With the combination of Process Builder, Flow, and Invokable Methods in Apex, you have made Chapter Leaders more productive! For more hands-on learning about these tools, try the [Process Automation](https://developer.salesforce.com/trailhead/module/business_process_automation) module in [Trailhead](https://developer.salesforce.com/trailhead/).
 
-### Extra Credit Requirements
+# Extra Credit
 
 ## Automate Class Description Compilation
 Currently, the Chapter Leader enters the Class Description in the Description field of the Campaign. This is a manual copy/paste process from a Google Doc that has a description for each class and a bio for each Instructor. How can we automate this to eliminate all of the copying and pasting and store all of the information in Salesforce?
