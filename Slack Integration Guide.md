@@ -25,7 +25,7 @@ No sense waiting, let's get started...
 2. Create sample data: at least one Account record for a Chapter (e.g., NYC Chapter).
 3. Create sample data: at least two Teaching Assistants, create as Contacts with a lookup to the Chapter (Account) you created.
 4. Create sample data: one Instructor, create as User with Salesforce license and Standard User profile.
-5. Create Instructors & Teaching Assistants Chatter Group: set Group Access to Private, Allow Customers.
+5. Create Instructors & Teaching Assistants Chatter Group: set Group Access to Public.
 7. From Classic Setup UI, enable Thanks on Global Publisher: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
 
 ## 1 - New Class Sessions: Automating with Process Builder
@@ -71,7 +71,7 @@ Your functioning process should now be ready to test. Enter data as you would as
 2. Check the Instructors & Teaching Assistants Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct in the post? If yes, you just saved all of the Chapter Leaders a little bit of time. Multiple that savings by 50 chatpers and dozens of classes a year in each, that little bit adds up! 
 
 ## 2 - New Class Sessions: Automating with Flow
-Not all potential Teaching Assistants are in the Chatter group, so you also want to look for local Chapter members. They are modeled as Contacts, and the next automation requires querying Contacts to create one or more Campaign Members. This is something you cannot do with just the Process Builder capabilities. This is where Flow comes in.
+Only people in your coding class organization are in the Chatter group, but some Teaching Assistants are local Chapter members. Chapter Members are modeled as Contacts, and the next automation requires querying Contacts to create one or more Campaign Members. This is something you cannot do with just the Process Builder capabilities. This is where Flow comes in.
 
 ### What you will do
 1. Create a new Flow
