@@ -306,4 +306,19 @@ What else will you need to do before you can deploy this process in a production
 ### Congratuations!
 With the combination of Process Builder, Flow, and Invokable Methods in Apex, you have made Chapter Leaders more productive! For more hands-on learning about these tools, try the [Process Automation](https://developer.salesforce.com/trailhead/module/business_process_automation) module in [Trailhead](https://developer.salesforce.com/trailhead/).
 
+### Extra Credit Requirements
+
+## Automate Class Description Compilation
+Currently, the Chapter Leader enters the Class Description in the Description field of the Campaign. This is a manual copy/paste process from a Google Doc that has a description for each class and a bio for each Instructor. How can we automate this to eliminate all of the copying and pasting and store all of the information in Salesforce?
+
+1. Create a custom object to store Classes. Add a custom field for Description (Long Text).
+2. Customize the User object: add a custom field to store Instructor Bio.
+3. In Process Builder, for new class sessions (new Campaigns of type 'Dev Class'), add an action to concatenate the Class Description and the Instructor Bio and copy it into the Campaign Description.
+
+## Automate Instructor Emails
+The Chapter Leader is responsible for sending emails to the Instructors before and after the class. Seven days before the class, they send a prep email with all of the logistical information. After the class, they send a Thank You email. Again, the content for these emails is stored in a Google Doc. How can we store the email content in Salesforce for reuse and trigger the emails automatically?
+
+
+
+7 Days before the Class, send the Instructor a Prep Email. 
 
