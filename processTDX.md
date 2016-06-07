@@ -308,9 +308,10 @@ What else will you need to do before you can deploy this process in a production
 With the combination of Process Builder, Flow, and Invokable Methods in Apex, you have made Chapter Leaders more productive! For more hands-on learning about these tools, try the [Process Automation](https://developer.salesforce.com/trailhead/module/business_process_automation) module in [Trailhead](https://developer.salesforce.com/trailhead/).
 
 In addition, check out these resources:
-Motherlode of Invokable Apex for Process Builder: https://github.com/mshanemc/processBuilderBlocks
-Automation Champion blog: https://automationchampion.com/learning-process-builder/
-Jenwlee's Salesforce Blog blog: https://jenwlee.wordpress.com/tag/process-builder/
+
+* Motherlode of Invokable Apex for Process Builder: https://github.com/mshanemc/processBuilderBlocks
+* Automation Champion blog: https://automationchampion.com/learning-process-builder/
+* Jenwlee's Salesforce Blog blog: https://jenwlee.wordpress.com/tag/process-builder/
 
 # Extra Credit
 
