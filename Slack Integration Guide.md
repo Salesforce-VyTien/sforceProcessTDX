@@ -322,6 +322,3 @@ The Chapter Leader is responsible for sending emails to the Instructors before a
 2. Create an Email Alert for Instructor Prep, and one for Instructor Thank You.
 3. In Process Builder, add an action to the New Class Sessions process to trigger a Timebased Action that will send the Instructor Prep email 7 days before the class.
 4. In Process Builder, add an action to the Completed Class Session process to trigger a Thank You email to the Instructor when the class is complete. 
-
-7 Days before the Class, send the Instructor a Prep Email. 
-
