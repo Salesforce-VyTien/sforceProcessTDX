@@ -5,8 +5,8 @@
 In this project you will combine three tools to automate the management of Instructors and Teaching Assistants for an organization that delivers coding classes in various Chapters. 
 
 You will use:
-* Process Builder - recruit Teaching Assistants via Chatter, and add the Instructor to a Chatter Group 
-* Flow - prep for emailing potential Teaching Assistants by creating Campaign Member child records
+* Process Builder - recruit Teaching Assistants via Chatter 
+* Flow - prep to recruit Teaching Assistants via local Contacts
 * Invokable Methods in Apex - thank the Instructor by posting a Thanks badge
 
 You will combine these actions in Process Builder, enabling you to easily maintain the processes and collaborate with other members of your team with the process diagram.
@@ -25,21 +25,20 @@ No sense waiting, let's get started...
 2. Create sample data: at least one Account record for a Chapter (e.g., NYC Chapter).
 3. Create sample data: at least two Teaching Assistants, create as Contacts with a lookup to the Chapter (Account) you created.
 4. Create sample data: one Instructor, create as User with Salesforce license and Standard User profile.
-5. Create Women in Technology Chatter Group: set Group Access to Private, Allow Customers.
+5. Create Instructors & Teaching Assistants Chatter Group: set Group Access to Private, Allow Customers.
 7. From Classic Setup UI, enable Thanks on Global Publisher: Build | Customize | Work.com | Work.com Settings | enable Thanks Setting 'Turn on Thanks action on the Global Publisher layout.'
 
 ## 1 - New Class Sessions: Automating with Process Builder
-As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign). Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Women in Technology Chatter Group, provide the details of the class, and ask volunteers to email you. Also, you make sure the Instructor is in the Women in Technology Chatter Group. Currently, you do that manually - first adding the Instructor to the Campaign and then heading over to the Women in Technology Chatter Group and adding the Instructor there. Save yourself some time and automate that part, too.
+As the Chapter Leader, you've done the legwork to identify the starting point for a new class session (modeled as a Campaign). Now you need to get the class session into the system and start recruiting Teaching Assistant volunteers. You've been doing this manually, but it is always the same thing: post to the Instructors & Teaching Assistants Chatter Group, provide the details of the class, and ask volunteers to email you. Save yourself some time and automate that Chatter post.
 
 ### What you will do
 1. Create a process in Process Builder for the Campaign object
 2. Add the process Criteria
 3. Add an Action to post to Chatter to ask for volunteers
-4. Add an Action to call a Quick Create that adds a member to a group
-5. Activate and test the process
+4. Activate and test the process
 
 ### Create Process and Define Criteria
-These first two automations can be done right within the Process Builder, completely declaratively! 
+This first automation can be done right within the Process Builder, completely declaratively! 
 
 Lets fire up our Process Builder and create this process.
 
@@ -63,28 +62,16 @@ Please email me at {![Campaign].Owner.Email} if you are interested.
 
 ![Set the Action](1.3 - chatter post action2.png)
 
-Now add an action of type 'Quick Action'. This lets you call any Global or Object-Specific Quick Action and map in the values it needs to do it's job. 
-
-In the Select and Define Action settings, select Action Type = Quick Actions, and then provide an Action Name. Next, you need to find the action you are looking for...which is the Object-Specific Quick Action to add New Members to a group. Filter Search By 'Object', select the Object labeled 'Group' (API Name CollaborationGroup), and the Action 'NewGroupMember'. 
-
-Now you should see the available values you need to provide. For the 'Related Record ID' field, the Quick Action wants the ID of the Chatter Group, and in this case you will need to hardcode it. Navigate to the Women in Technology Chatter Group and copy the ID from the URL.
-
-Set the Quick Action Field Values as follows:
-* Related Record ID | ID | (ID You Copied From The Chatter Group URL, not the one in the screen shot!)
-* Member ID | Reference | [Campaign.Instructor__c] 
-
-![Set the Action](1.4 - create record action2.png)
-
-Finally, Activate the process.
+That's it! Now, activate the process.
 
 ### Test
 Your functioning process should now be ready to test. Enter data as you would as the Chapter Leader, following these steps:
 
 1. Enter a new Campaign record, setting Campaign Name = the name of a coding class; Campaign Type = Dev Class; Start Date = any date; Chapter = your sample account; Instructor = your sample instructor. Save.
-2. Check the Women in Technology Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct in the post? Did the Instructor get added as a group member? If yes, you just made all of the Chapter Leaders more productive!
+2. Check the Instructors & Teaching Assistants Chatter Group. Did your Teaching Assistant recruitment post make it there? Are the merge fields correct in the post? If yes, you just saved all of the Chapter Leaders a little bit of time. Multiple that savings by 50 chatpers and dozens of classes a year in each, that little bit adds up! 
 
 ## 2 - New Class Sessions: Automating with Flow
-The next automation requires querying Contacts to create one or more Campaign Members. This is something you cannot do with just the Process Builder capabilities. This is where Flow comes in.
+Not all potential Teaching Assistants are in the Chatter group, so you also want to look for local Chapter members. They are modeled as Contacts, and the next automation requires querying Contacts to create one or more Campaign Members. This is something you cannot do with just the Process Builder capabilities. This is where Flow comes in.
 
 ### What you will do
 1. Create a new Flow
