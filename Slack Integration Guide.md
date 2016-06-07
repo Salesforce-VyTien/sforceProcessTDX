@@ -318,7 +318,10 @@ Currently, the Chapter Leader enters the Class Description in the Description fi
 ## Automate Instructor Emails
 The Chapter Leader is responsible for sending emails to the Instructors before and after the class. Seven days before the class, they send a prep email with all of the logistical information. After the class, they send a Thank You email. Again, the content for these emails is stored in a Google Doc. How can we store the email content in Salesforce for reuse and trigger the emails automatically?
 
-
+1. Create an Email Template for Instructor Prep, and one for Instructor Thank You.
+2. Create an Email Alert for Instructor Prep, and one for Instructor Thank You.
+3. In Process Builder, add an action to the New Class Sessions process to trigger a Timebased Action that will send the Instructor Prep email 7 days before the class.
+4. In Process Builder, add an action to the Completed Class Session process to trigger a Thank You email to the Instructor when the class is complete. 
 
 7 Days before the Class, send the Instructor a Prep Email. 
 
