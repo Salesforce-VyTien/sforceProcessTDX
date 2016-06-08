@@ -180,7 +180,7 @@ Click Close. Now you should be on the Flow Detail page. Your Flow is listed in t
 ### Add the Flow to your Process
 We want the potential Teaching Assistants added as Campaign Members for all new Campaigns for Dev Classes, so we should add this to the process we built in Step 1 because that is firing for all new Campaigns of Type = Dev Class. Calling a Flow from a process in Process Builder gives us the extra power we need for this automation, while keeping it in one place to make it easy to maintain and to share with our team.
 
-Fire up Process Builder and edit your existing process: New Class Sessions. Oh no, you can't! Processes cannot be modified once they have been activated. To modify a Flow, Clone it first. Save the clone as a version of the current process (this is the default).
+Fire up Process Builder and edit your existing process: New Class Sessions. Oh no, you can't! Processes cannot be modified once they have been activated. To modify a process, Clone it first. Save the clone as a version of the current process (this is the default).
 
 Now you can add an action that calls your brand new Flow, and provide values for the two input variables you defined in the Flow.
 * AccountIDFromPB | Reference | [Campaign.Chapter__c]
