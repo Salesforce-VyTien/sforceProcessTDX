@@ -160,9 +160,10 @@ Right now your four Flow elements are disconnected and the Flow engine doesn't k
 
 Connect these elements, in this order:
 
-1. Fast Lookup and Loop
-2. Loop and Assignment (set the Loop Routing to Go to this element 'for each value in the collection')
-3. Assignment and Loop (yup, you need to loop to the loop)
+1. Fast Lookup to Loop
+2. Loop to Assignment #1 (set the Loop Routing to Go to this element 'for each value in the collection')
+3. Assignment #1 to Assignment #2
+3. Assignment #2 to Loop (to close the loop)
 3. Loop and Fast Create 
 
 Hover over the Fast Loopkup element and click the little green arrow that appears. That marks the Fast Lookup as the starting element.
