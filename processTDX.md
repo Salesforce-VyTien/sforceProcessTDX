@@ -128,20 +128,25 @@ Select the Palette tab. Drag the Fast Lookup element onto the canvas. In General
 
 ![Find Chapter TAs](2.9 - find chapter tas2.png)
 
-### Define Loop and Assignment
+### Define Loop and Assignments
 Now you need to iterate through the ChapterTAContacts collection to map the values to the TACampaignMembers collection.
 
 From the Pallete tab, drag the Loop element onto the canvas. Fill in the information. 
 
 ![Loop Contacts](2.10 - loop contacts.png)
 
-From the Pallete tab, drag the Assignment element onto the canvas. This is where you populate the CampaignMemberRecord variable using the Contact ID value from the ContactRecord variable and the Campaign ID you passed from the Process Builder process, then add that to the TACampaignMembers collection. Fill in the information, setting these assignments:
+From the Pallete tab, drag the Assignment element onto the canvas. This is where you populate the CampaignMemberRecord variable using the Contact ID value from the ContactRecord variable and the Campaign ID you passed from the Process Builder process. Fill in the information, setting these assignments:
 
 * {!CampaignMemberRecord.ContactId} | equals | {!ContactRecord.Id}
 * {!CampaignMemberRecord.CampaignId} | equals | {!CampaignIDFromPB}
+
+![Assignment](2.11a - assign contacts to campaign members.png)
+
+Now you need to add that record to the TACampaignMembers collection. From the Pallete tab, drag the Assignment element onto the canvas. Fill in the information, setting this assignment:
+
 * {!TACampaignMembers} | add | {!CampaignMemberRecord}
 
-![Assignment](2.11 - assign contacts to campaign members.png)
+![Assignment](2.11b - assign record to collection.png)
 
 ### Define Fast Create
 Now you have what you need to create the new Campaign Member records for the potential Teaching Assistants! Just provide the Fast Create element with the SObject Collection variable you've populated. Boom, that's it!
@@ -164,7 +169,7 @@ Hover over the Fast Loopkup element and click the little green arrow that appear
 
 You should now have a Flow that looks like this...
 
-![Final Flow](2.13 - final flow.png)
+![Final Flow](2.13 - final flow2.png)
 
 ### Save and Activate
 Finally, you need to save the Flow and then Activate it before you can test.
